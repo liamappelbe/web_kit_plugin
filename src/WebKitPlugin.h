@@ -275,6 +275,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreFoundation;
+@import Flutter;
 @import ObjectiveC;
 #endif
 
@@ -296,12 +298,43 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
+@class UIView;
+
+SWIFT_CLASS("_TtC14web_kit_plugin16WebKitNativeView")
+@interface WebKitNativeView : NSObject <FlutterPlatformView>
+- (UIView * _Nonnull)view SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@protocol FlutterPluginRegistrar;
+
+SWIFT_CLASS("_TtC14web_kit_plugin12WebKitPlugin")
+@interface WebKitPlugin : NSObject <FlutterPlugin>
++ (void)registerWithRegistrar:(id <FlutterPluginRegistrar> _Nonnull)registrar;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@protocol FlutterMessageCodec;
+@protocol NSObject;
+
+SWIFT_CLASS("_TtC14web_kit_plugin17WebKitViewFactory")
+@interface WebKitViewFactory : NSObject <FlutterPlatformViewFactory>
+- (id <FlutterPlatformView> _Nonnull)createWithFrame:(CGRect)frame viewIdentifier:(int64_t)viewId arguments:(id _Nullable)args SWIFT_WARN_UNUSED_RESULT;
+/// Implementing this method is only necessary when the <code>arguments</code> in <code>createWithFrame</code> is not <code>nil</code>.
+- (id <FlutterMessageCodec, NSObject> _Nonnull)createArgsCodec SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class NSString;
 
-SWIFT_CLASS("_TtC14web_kit_plugin13WebKitWrapper")
-@interface WebKitWrapper : NSObject
-- (NSString * _Nonnull)sayHello SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS("_TtC14web_kit_plugin17WebKitViewWrapper")
+@interface WebKitViewWrapper : NSObject
++ (void)setOnCreateWithId:(NSInteger)id closure:(void (^ _Nonnull)(WebKitViewWrapper * _Nonnull))closure;
+- (void)loadWithUrl:(NSString * _Nonnull)url;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 #endif

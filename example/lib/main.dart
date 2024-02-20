@@ -15,12 +15,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late String hello;
-
   @override
   void initState() {
     super.initState();
-    hello = web_kit_plugin.hello();
   }
 
   @override
@@ -30,7 +27,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(hello),
+          title: const Text("Web view test"),
         ),
         body: web_kit_plugin.WebView(),
       ),

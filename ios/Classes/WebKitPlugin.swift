@@ -1,4 +1,5 @@
 import Flutter
+import Foundation
 import UIKit
 import WebKit
 
@@ -35,8 +36,43 @@ class WebKitViewFactory: NSObject, FlutterPlatformViewFactory {
   }
 }
 
+@objc class WebKitViewWrapper : NSObject {
+  // TODO: If we could pass a callback through UiKitView's creationParams, this
+  // wouldn't be necessary. That might be possible if we can write a custom
+  // MessageCodec.
+  typealias OnCreate = (WebKitViewWrapper) -> Void
+  private static var _onCreate: [Int: OnCreate] = [:]
+
+  private var _webView: WKWebView
+
+  init(id: Int) {
+    let webConfiguration = WKWebViewConfiguration()
+    _webView = WKWebView(frame: .zero, configuration: webConfiguration)
+
+    super.init()
+
+    _webView.allowsBackForwardNavigationGestures = true
+    _webView.backgroundColor = UIColor.yellow
+
+    let onCreate = WebKitViewWrapper._onCreate.removeValue(forKey: id)
+    onCreate?(self)
+  }
+
+  @objc static func setOnCreate(id: Int, closure: @escaping OnCreate) {
+    WebKitViewWrapper._onCreate[id] = closure
+  }
+
+  @objc func load(url: String) {
+    _webView.load(URLRequest(url: URL(string: url)!))
+  }
+
+  func view() -> UIView {
+    return _webView
+  }
+}
+
 class WebKitNativeView: NSObject, FlutterPlatformView {
-  private var _view: UIView
+  private var _webView: WebKitViewWrapper
 
   init(
     frame: CGRect,
@@ -44,23 +80,11 @@ class WebKitNativeView: NSObject, FlutterPlatformView {
     arguments args: Any?,
     binaryMessenger messenger: FlutterBinaryMessenger?
   ) {
-    _view = UIView()
+    _webView = WebKitViewWrapper(id: args as! Int)
     super.init()
-    // iOS views can be created here
-    createNativeView(view: _view)
   }
 
   func view() -> UIView {
-    return _view
-  }
-
-  func createNativeView(view _view: UIView){
-    let webConfiguration = WKWebViewConfiguration()
-    let webView = WKWebView(frame: .zero, configuration: webConfiguration)
-    webView.load(URLRequest(url: URL(string: "https://www.xkcd.com")!))
-    webView.allowsBackForwardNavigationGestures = true
-    webView.backgroundColor = UIColor.yellow
-    webView.frame = CGRect(x: 0, y: 0, width: 360, height: 480)
-    _view.addSubview(webView)
+    return _webView.view()
   }
 }

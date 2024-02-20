@@ -5,12 +5,17 @@ output: '../lib/web_kit_plugin_bindings_generated.dart'
 exclude-all-by-default: true
 objc-interfaces:
   include:
-    - 'WebKitWrapper'
+    - 'WebKitViewWrapper'
   module:
-    'WebKitWrapper': 'web_kit_plugin'
+    'WebKitViewWrapper': 'web_kit_plugin'
 headers:
   entry-points:
-    - 'web_kit_wrapper.h'
+    - 'WebKitPlugin.h'
+compiler-opts:
+  - '-F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks'
+  - '-mios-version-min=11.0'
+  - '-isysroot'
+  - '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk'
 preamble: |
   // ignore_for_file: camel_case_types, non_constant_identifier_names
   // ignore_for_file: unused_element, unused_field, return_of_invalid_type
