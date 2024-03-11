@@ -1,36 +1,65 @@
+// Copyright 2013 The Flutter Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// ignore_for_file: public_member_api_docs
+
 import 'package:flutter/material.dart';
-import 'dart:async';
+import 'package:web_kit_plugin/web_kit_plugin.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
-import 'package:web_kit_plugin/web_kit_plugin.dart' as web_kit_plugin;
+void main() => runApp(const MaterialApp(home: WebViewExample()));
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class WebViewExample extends StatefulWidget {
+  const WebViewExample({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<WebViewExample> createState() => _WebViewExampleState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _WebViewExampleState extends State<WebViewExample> {
+  late final WebViewController controller;
+
   @override
   void initState() {
     super.initState();
+
+    // #docregion webview_controller
+    controller = WebViewController.fromPlatform(SwiftWebViewController())
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(const Color(0x00000000))
+      ..setNavigationDelegate(
+        NavigationDelegate.fromPlatform(
+          SwiftNavigationDelegate(),
+          onProgress: (int progress) {
+            // Update loading bar.
+          },
+          onPageStarted: (String url) {},
+          onPageFinished: (String url) {},
+          onWebResourceError: (WebResourceError error) {},
+          onNavigationRequest: (NavigationRequest request) {
+            if (request.url.startsWith('https://www.youtube.com/')) {
+              return NavigationDecision.prevent;
+            }
+            return NavigationDecision.navigate;
+          },
+        ),
+      )
+      ..loadRequest(Uri.parse('https://flutter.dev'));
+    // #enddocregion webview_controller
   }
 
+  // #docregion webview_widget
   @override
   Widget build(BuildContext context) {
-    const textStyle = TextStyle(fontSize: 25);
-    const spacerSmall = SizedBox(height: 10);
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Web view test"),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Flutter Simple Example')),
+      body: WebViewWidget.fromPlatform(platform: SwiftWebViewWidget(
+        PlatformWebViewWidgetCreationParams(
+          controller: controller.platform,
         ),
-        body: web_kit_plugin.WebView(),
-      ),
+      )),
     );
   }
+  // #enddocregion webview_widget
 }

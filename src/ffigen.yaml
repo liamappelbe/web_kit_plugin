@@ -6,8 +6,14 @@ exclude-all-by-default: true
 objc-interfaces:
   include:
     - 'WebKitViewWrapper'
+    - 'NavigationDelegateWrapper'
+    - 'Closure_Void_Int'
+    - 'NavigationActionPolicy'
   module:
     'WebKitViewWrapper': 'web_kit_plugin'
+    'NavigationDelegateWrapper': 'web_kit_plugin'
+    'Closure_Void_Int': 'web_kit_plugin'
+    'NavigationActionPolicy': 'web_kit_plugin'
 headers:
   entry-points:
     - 'WebKitPlugin.h'

@@ -278,6 +278,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreFoundation;
 @import Flutter;
 @import ObjectiveC;
+@import WebKit;
 #endif
 
 #endif
@@ -298,6 +299,37 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
+
+SWIFT_CLASS("_TtC14web_kit_plugin16Closure_Void_Int")
+@interface Closure_Void_Int : NSObject
+- (void)callWithArg:(NSInteger)arg;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC14web_kit_plugin22NavigationActionPolicy")
+@interface NavigationActionPolicy : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger cancel;)
++ (NSInteger)cancel SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger allow;)
++ (NSInteger)allow SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger download;)
++ (NSInteger)download SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class WKNavigationAction;
+@class WKWebView;
+
+SWIFT_CLASS("_TtC14web_kit_plugin25NavigationDelegateWrapper")
+@interface NavigationDelegateWrapper : NSObject <WKNavigationDelegate>
+@property (nonatomic, copy) void (^ _Nullable decidePolicyForNavigationAction)(WKNavigationAction * _Nonnull, Closure_Void_Int * _Nonnull);
+@property (nonatomic, copy) void (^ _Nullable bloop)(void);
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIView;
 
 SWIFT_CLASS("_TtC14web_kit_plugin16WebKitNativeView")
@@ -327,12 +359,15 @@ SWIFT_CLASS("_TtC14web_kit_plugin17WebKitViewFactory")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSString;
+@class NSURLRequest;
 
 SWIFT_CLASS("_TtC14web_kit_plugin17WebKitViewWrapper")
 @interface WebKitViewWrapper : NSObject
-+ (void)setOnCreateWithId:(NSInteger)id closure:(void (^ _Nonnull)(WebKitViewWrapper * _Nonnull))closure;
-- (void)loadWithUrl:(NSString * _Nonnull)url;
+- (nonnull instancetype)initWithId:(NSInteger)id OBJC_DESIGNATED_INITIALIZER;
+- (void)loadWithRequest:(NSURLRequest * _Nonnull)request;
+- (void)setBackgroundColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
+- (void)setJavaScriptEnabledWithEnabled:(BOOL)enabled;
+- (void)setNavigationDelegateWithDelegate:(NavigationDelegateWrapper * _Nonnull)delegate;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
