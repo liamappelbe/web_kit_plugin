@@ -24877,69 +24877,130 @@ class WebKitPluginBindings {
   late final _class_Closure_Void_Int1 =
       _getClass1("web_kit_plugin.Closure_Void_Int");
   late final _sel_callWithArg_1 = _registerName1("callWithArg:");
-  late final _class_NavigationActionPolicy1 =
-      _getClass1("web_kit_plugin.NavigationActionPolicy");
-  late final _sel_allow1 = _registerName1("allow");
-  late final _sel_download1 = _registerName1("download");
-  late final _class_NavigationDelegateWrapper1 =
-      _getClass1("web_kit_plugin.NavigationDelegateWrapper");
-  late final _class_WKNavigationAction1 = _getClass1("WKNavigationAction");
-  late final _sel_decidePolicyForNavigationAction1 =
-      _registerName1("decidePolicyForNavigationAction");
-  ffi.Pointer<_ObjCBlock> _objc_msgSend_888(
+  late final _class_FrameInfoWrapper1 =
+      _getClass1("web_kit_plugin.FrameInfoWrapper");
+  late final _class_WKFrameInfo1 = _getClass1("WKFrameInfo");
+  late final _sel_initWithInfo_1 = _registerName1("initWithInfo:");
+  instancetype _objc_msgSend_888(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<ObjCObject> info,
   ) {
     return __objc_msgSend_888(
       obj,
       sel,
+      info,
     );
   }
 
   late final __objc_msgSend_888Ptr = _lookup<
       ffi.NativeFunction<
+          instancetype Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+              ffi.Pointer<ObjCObject>)>>('objc_msgSend');
+  late final __objc_msgSend_888 = __objc_msgSend_888Ptr.asFunction<
+      instancetype Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<ObjCObject>)>();
+
+  late final _sel_isMainFrame1 = _registerName1("isMainFrame");
+  late final _class_NavigationActionWrapper1 =
+      _getClass1("web_kit_plugin.NavigationActionWrapper");
+  late final _class_WKNavigationAction1 = _getClass1("WKNavigationAction");
+  late final _sel_initWithAction_1 = _registerName1("initWithAction:");
+  instancetype _objc_msgSend_889(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<ObjCObject> action,
+  ) {
+    return __objc_msgSend_889(
+      obj,
+      sel,
+      action,
+    );
+  }
+
+  late final __objc_msgSend_889Ptr = _lookup<
+      ffi.NativeFunction<
+          instancetype Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+              ffi.Pointer<ObjCObject>)>>('objc_msgSend');
+  late final __objc_msgSend_889 = __objc_msgSend_889Ptr.asFunction<
+      instancetype Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<ObjCObject>)>();
+
+  late final _sel_targetFrame1 = _registerName1("targetFrame");
+  ffi.Pointer<ObjCObject> _objc_msgSend_890(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
+    return __objc_msgSend_890(
+      obj,
+      sel,
+    );
+  }
+
+  late final __objc_msgSend_890Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ObjCObject> Function(
+              ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>>('objc_msgSend');
+  late final __objc_msgSend_890 = __objc_msgSend_890Ptr.asFunction<
+      ffi.Pointer<ObjCObject> Function(
+          ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>();
+
+  late final _class_NavigationDelegateWrapper1 =
+      _getClass1("web_kit_plugin.NavigationDelegateWrapper");
+  late final _sel_decidePolicyForNavigationAction1 =
+      _registerName1("decidePolicyForNavigationAction");
+  ffi.Pointer<_ObjCBlock> _objc_msgSend_891(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
+    return __objc_msgSend_891(
+      obj,
+      sel,
+    );
+  }
+
+  late final __objc_msgSend_891Ptr = _lookup<
+      ffi.NativeFunction<
           ffi.Pointer<_ObjCBlock> Function(
               ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>>('objc_msgSend');
-  late final __objc_msgSend_888 = __objc_msgSend_888Ptr.asFunction<
+  late final __objc_msgSend_891 = __objc_msgSend_891Ptr.asFunction<
       ffi.Pointer<_ObjCBlock> Function(
           ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>();
 
   late final _sel_setDecidePolicyForNavigationAction_1 =
       _registerName1("setDecidePolicyForNavigationAction:");
-  void _objc_msgSend_889(
+  void _objc_msgSend_892(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<_ObjCBlock> value,
   ) {
-    return __objc_msgSend_889(
+    return __objc_msgSend_892(
       obj,
       sel,
       value,
     );
   }
 
-  late final __objc_msgSend_889Ptr = _lookup<
+  late final __objc_msgSend_892Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
               ffi.Pointer<_ObjCBlock>)>>('objc_msgSend');
-  late final __objc_msgSend_889 = __objc_msgSend_889Ptr.asFunction<
+  late final __objc_msgSend_892 = __objc_msgSend_892Ptr.asFunction<
       void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
           ffi.Pointer<_ObjCBlock>)>();
 
-  late final _sel_bloop1 = _registerName1("bloop");
-  late final _sel_setBloop_1 = _registerName1("setBloop:");
   late final _class_WKWebView1 = _getClass1("WKWebView");
   late final _sel_webView_decidePolicyForNavigationAction_decisionHandler_1 =
       _registerName1(
           "webView:decidePolicyForNavigationAction:decisionHandler:");
-  void _objc_msgSend_890(
+  void _objc_msgSend_893(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> webView,
     ffi.Pointer<ObjCObject> navigationAction,
     ffi.Pointer<ObjCObject> decisionHandler,
   ) {
-    return __objc_msgSend_890(
+    return __objc_msgSend_893(
       obj,
       sel,
       webView,
@@ -24948,7 +25009,7 @@ class WebKitPluginBindings {
     );
   }
 
-  late final __objc_msgSend_890Ptr = _lookup<
+  late final __objc_msgSend_893Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(
               ffi.Pointer<ObjCObject>,
@@ -24956,7 +25017,7 @@ class WebKitPluginBindings {
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCObject>,
               ffi.Pointer<ObjCObject>)>>('objc_msgSend');
-  late final __objc_msgSend_890 = __objc_msgSend_890Ptr.asFunction<
+  late final __objc_msgSend_893 = __objc_msgSend_893Ptr.asFunction<
       void Function(
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCSel>,
@@ -24964,13 +25025,258 @@ class WebKitPluginBindings {
           ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCObject>)>();
 
+  late final _class_StrongRef_NSURL1 = _getClass1("StrongRef_NSURL");
+  late final _sel_drop1 = _registerName1("drop");
+  late final _sel_didStartProvisionalNavigation1 =
+      _registerName1("didStartProvisionalNavigation");
+  ffi.Pointer<_ObjCBlock> _objc_msgSend_894(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
+    return __objc_msgSend_894(
+      obj,
+      sel,
+    );
+  }
+
+  late final __objc_msgSend_894Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<_ObjCBlock> Function(
+              ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>>('objc_msgSend');
+  late final __objc_msgSend_894 = __objc_msgSend_894Ptr.asFunction<
+      ffi.Pointer<_ObjCBlock> Function(
+          ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>();
+
+  late final _sel_setDidStartProvisionalNavigation_1 =
+      _registerName1("setDidStartProvisionalNavigation:");
+  void _objc_msgSend_895(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<_ObjCBlock> value,
+  ) {
+    return __objc_msgSend_895(
+      obj,
+      sel,
+      value,
+    );
+  }
+
+  late final __objc_msgSend_895Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+              ffi.Pointer<_ObjCBlock>)>>('objc_msgSend');
+  late final __objc_msgSend_895 = __objc_msgSend_895Ptr.asFunction<
+      void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<_ObjCBlock>)>();
+
+  late final _class_WKNavigation1 = _getClass1("WKNavigation");
+  late final _sel_webView_didStartProvisionalNavigation_1 =
+      _registerName1("webView:didStartProvisionalNavigation:");
+  void _objc_msgSend_896(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<ObjCObject> webView,
+    ffi.Pointer<ObjCObject> navigation,
+  ) {
+    return __objc_msgSend_896(
+      obj,
+      sel,
+      webView,
+      navigation,
+    );
+  }
+
+  late final __objc_msgSend_896Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<ObjCObject>,
+              ffi.Pointer<ObjCSel>,
+              ffi.Pointer<ObjCObject>,
+              ffi.Pointer<ObjCObject>)>>('objc_msgSend');
+  late final __objc_msgSend_896 = __objc_msgSend_896Ptr.asFunction<
+      void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>();
+
+  late final _sel_didFinishNavigation1 = _registerName1("didFinishNavigation");
+  late final _sel_setDidFinishNavigation_1 =
+      _registerName1("setDidFinishNavigation:");
+  late final _sel_webView_didFinishNavigation_1 =
+      _registerName1("webView:didFinishNavigation:");
+  late final _class_StrongRef_NSError1 = _getClass1("StrongRef_NSError");
+  ffi.Pointer<ObjCObject> _objc_msgSend_897(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
+    return __objc_msgSend_897(
+      obj,
+      sel,
+    );
+  }
+
+  late final __objc_msgSend_897Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ObjCObject> Function(
+              ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>>('objc_msgSend');
+  late final __objc_msgSend_897 = __objc_msgSend_897Ptr.asFunction<
+      ffi.Pointer<ObjCObject> Function(
+          ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>();
+
+  late final _sel_didFailNavigation1 = _registerName1("didFailNavigation");
+  ffi.Pointer<_ObjCBlock> _objc_msgSend_898(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
+    return __objc_msgSend_898(
+      obj,
+      sel,
+    );
+  }
+
+  late final __objc_msgSend_898Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<_ObjCBlock> Function(
+              ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>>('objc_msgSend');
+  late final __objc_msgSend_898 = __objc_msgSend_898Ptr.asFunction<
+      ffi.Pointer<_ObjCBlock> Function(
+          ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>();
+
+  late final _sel_setDidFailNavigation_1 =
+      _registerName1("setDidFailNavigation:");
+  void _objc_msgSend_899(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<_ObjCBlock> value,
+  ) {
+    return __objc_msgSend_899(
+      obj,
+      sel,
+      value,
+    );
+  }
+
+  late final __objc_msgSend_899Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+              ffi.Pointer<_ObjCBlock>)>>('objc_msgSend');
+  late final __objc_msgSend_899 = __objc_msgSend_899Ptr.asFunction<
+      void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<_ObjCBlock>)>();
+
+  late final _sel_webView_didFailNavigation_withError_1 =
+      _registerName1("webView:didFailNavigation:withError:");
+  void _objc_msgSend_900(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<ObjCObject> webView,
+    ffi.Pointer<ObjCObject> navigation,
+    ffi.Pointer<ObjCObject> error,
+  ) {
+    return __objc_msgSend_900(
+      obj,
+      sel,
+      webView,
+      navigation,
+      error,
+    );
+  }
+
+  late final __objc_msgSend_900Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<ObjCObject>,
+              ffi.Pointer<ObjCSel>,
+              ffi.Pointer<ObjCObject>,
+              ffi.Pointer<ObjCObject>,
+              ffi.Pointer<ObjCObject>)>>('objc_msgSend');
+  late final __objc_msgSend_900 = __objc_msgSend_900Ptr.asFunction<
+      void Function(
+          ffi.Pointer<ObjCObject>,
+          ffi.Pointer<ObjCSel>,
+          ffi.Pointer<ObjCObject>,
+          ffi.Pointer<ObjCObject>,
+          ffi.Pointer<ObjCObject>)>();
+
+  late final _sel_didFailProvisionalNavigation1 =
+      _registerName1("didFailProvisionalNavigation");
+  late final _sel_setDidFailProvisionalNavigation_1 =
+      _registerName1("setDidFailProvisionalNavigation:");
+  late final _sel_webView_didFailProvisionalNavigation_withError_1 =
+      _registerName1("webView:didFailProvisionalNavigation:withError:");
+  late final _sel_webContentProcessDidTerminate1 =
+      _registerName1("webContentProcessDidTerminate");
+  late final _sel_setWebContentProcessDidTerminate_1 =
+      _registerName1("setWebContentProcessDidTerminate:");
+  late final _sel_webViewWebContentProcessDidTerminate_1 =
+      _registerName1("webViewWebContentProcessDidTerminate:");
+  void _objc_msgSend_901(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<ObjCObject> webView,
+  ) {
+    return __objc_msgSend_901(
+      obj,
+      sel,
+      webView,
+    );
+  }
+
+  late final __objc_msgSend_901Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+              ffi.Pointer<ObjCObject>)>>('objc_msgSend');
+  late final __objc_msgSend_901 = __objc_msgSend_901Ptr.asFunction<
+      void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<ObjCObject>)>();
+
   late final _class_WebKitViewWrapper1 =
       _getClass1("web_kit_plugin.WebKitViewWrapper");
   late final _sel_initWithId_1 = _registerName1("initWithId:");
+  late final _sel_onProgress1 = _registerName1("onProgress");
+  ffi.Pointer<_ObjCBlock> _objc_msgSend_902(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+  ) {
+    return __objc_msgSend_902(
+      obj,
+      sel,
+    );
+  }
+
+  late final __objc_msgSend_902Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<_ObjCBlock> Function(
+              ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>>('objc_msgSend');
+  late final __objc_msgSend_902 = __objc_msgSend_902Ptr.asFunction<
+      ffi.Pointer<_ObjCBlock> Function(
+          ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>)>();
+
+  late final _sel_setOnProgress_1 = _registerName1("setOnProgress:");
+  void _objc_msgSend_903(
+    ffi.Pointer<ObjCObject> obj,
+    ffi.Pointer<ObjCSel> sel,
+    ffi.Pointer<_ObjCBlock> value,
+  ) {
+    return __objc_msgSend_903(
+      obj,
+      sel,
+      value,
+    );
+  }
+
+  late final __objc_msgSend_903Ptr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+              ffi.Pointer<_ObjCBlock>)>>('objc_msgSend');
+  late final __objc_msgSend_903 = __objc_msgSend_903Ptr.asFunction<
+      void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
+          ffi.Pointer<_ObjCBlock>)>();
+
+  late final _sel_onUrlChange1 = _registerName1("onUrlChange");
+  late final _sel_setOnUrlChange_1 = _registerName1("setOnUrlChange:");
   late final _sel_loadWithRequest_1 = _registerName1("loadWithRequest:");
   late final _sel_setBackgroundColorWithRed_green_blue_alpha_1 =
       _registerName1("setBackgroundColorWithRed:green:blue:alpha:");
-  void _objc_msgSend_891(
+  void _objc_msgSend_904(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     double red,
@@ -24978,7 +25284,7 @@ class WebKitPluginBindings {
     double blue,
     double alpha,
   ) {
-    return __objc_msgSend_891(
+    return __objc_msgSend_904(
       obj,
       sel,
       red,
@@ -24988,54 +25294,54 @@ class WebKitPluginBindings {
     );
   }
 
-  late final __objc_msgSend_891Ptr = _lookup<
+  late final __objc_msgSend_904Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
               ffi.Double, ffi.Double, ffi.Double, ffi.Double)>>('objc_msgSend');
-  late final __objc_msgSend_891 = __objc_msgSend_891Ptr.asFunction<
+  late final __objc_msgSend_904 = __objc_msgSend_904Ptr.asFunction<
       void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>, double,
           double, double, double)>();
 
   late final _sel_setJavaScriptEnabledWithEnabled_1 =
       _registerName1("setJavaScriptEnabledWithEnabled:");
-  void _objc_msgSend_892(
+  void _objc_msgSend_905(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     bool enabled,
   ) {
-    return __objc_msgSend_892(
+    return __objc_msgSend_905(
       obj,
       sel,
       enabled,
     );
   }
 
-  late final __objc_msgSend_892Ptr = _lookup<
+  late final __objc_msgSend_905Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
               ffi.Bool)>>('objc_msgSend');
-  late final __objc_msgSend_892 = __objc_msgSend_892Ptr.asFunction<
+  late final __objc_msgSend_905 = __objc_msgSend_905Ptr.asFunction<
       void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>, bool)>();
 
   late final _sel_setNavigationDelegateWithDelegate_1 =
       _registerName1("setNavigationDelegateWithDelegate:");
-  void _objc_msgSend_893(
+  void _objc_msgSend_906(
     ffi.Pointer<ObjCObject> obj,
     ffi.Pointer<ObjCSel> sel,
     ffi.Pointer<ObjCObject> delegate,
   ) {
-    return __objc_msgSend_893(
+    return __objc_msgSend_906(
       obj,
       sel,
       delegate,
     );
   }
 
-  late final __objc_msgSend_893Ptr = _lookup<
+  late final __objc_msgSend_906Ptr = _lookup<
       ffi.NativeFunction<
           ffi.Void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
               ffi.Pointer<ObjCObject>)>>('objc_msgSend');
-  late final __objc_msgSend_893 = __objc_msgSend_893Ptr.asFunction<
+  late final __objc_msgSend_906 = __objc_msgSend_906Ptr.asFunction<
       void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCSel>,
           ffi.Pointer<ObjCObject>)>();
 }
@@ -56581,69 +56887,63 @@ class Closure_Void_Int extends NSObject {
   }
 }
 
-class NavigationActionPolicy extends NSObject {
-  NavigationActionPolicy._(ffi.Pointer<ObjCObject> id, WebKitPluginBindings lib,
+class FrameInfoWrapper extends NSObject {
+  FrameInfoWrapper._(ffi.Pointer<ObjCObject> id, WebKitPluginBindings lib,
       {bool retain = false, bool release = false})
       : super._(id, lib, retain: retain, release: release);
 
-  /// Returns a [NavigationActionPolicy] that points to the same underlying object as [other].
-  static NavigationActionPolicy castFrom<T extends _ObjCWrapper>(T other) {
-    return NavigationActionPolicy._(other._id, other._lib,
+  /// Returns a [FrameInfoWrapper] that points to the same underlying object as [other].
+  static FrameInfoWrapper castFrom<T extends _ObjCWrapper>(T other) {
+    return FrameInfoWrapper._(other._id, other._lib,
         retain: true, release: true);
   }
 
-  /// Returns a [NavigationActionPolicy] that wraps the given raw object pointer.
-  static NavigationActionPolicy castFromPointer(
+  /// Returns a [FrameInfoWrapper] that wraps the given raw object pointer.
+  static FrameInfoWrapper castFromPointer(
       WebKitPluginBindings lib, ffi.Pointer<ObjCObject> other,
       {bool retain = false, bool release = false}) {
-    return NavigationActionPolicy._(other, lib,
-        retain: retain, release: release);
+    return FrameInfoWrapper._(other, lib, retain: retain, release: release);
   }
 
-  /// Returns whether [obj] is an instance of [NavigationActionPolicy].
+  /// Returns whether [obj] is an instance of [FrameInfoWrapper].
   static bool isInstance(_ObjCWrapper obj) {
     return obj._lib._objc_msgSend_0(obj._id, obj._lib._sel_isKindOfClass_1,
-        obj._lib._class_NavigationActionPolicy1);
+        obj._lib._class_FrameInfoWrapper1);
   }
 
-  static int getCancel(WebKitPluginBindings _lib) {
-    return _lib._objc_msgSend_75(
-        _lib._class_NavigationActionPolicy1, _lib._sel_cancel1);
+  FrameInfoWrapper initWithInfo_(WKFrameInfo info) {
+    final _ret =
+        _lib._objc_msgSend_888(_id, _lib._sel_initWithInfo_1, info._id);
+    return FrameInfoWrapper._(_ret, _lib, retain: true, release: true);
   }
 
-  static int getAllow(WebKitPluginBindings _lib) {
-    return _lib._objc_msgSend_75(
-        _lib._class_NavigationActionPolicy1, _lib._sel_allow1);
-  }
-
-  static int getDownload(WebKitPluginBindings _lib) {
-    return _lib._objc_msgSend_75(
-        _lib._class_NavigationActionPolicy1, _lib._sel_download1);
+  bool get isMainFrame {
+    return _lib._objc_msgSend_12(_id, _lib._sel_isMainFrame1);
   }
 
   @override
-  NavigationActionPolicy init() {
+  FrameInfoWrapper init() {
     final _ret = _lib._objc_msgSend_2(_id, _lib._sel_init1);
-    return NavigationActionPolicy._(_ret, _lib, retain: true, release: true);
+    return FrameInfoWrapper._(_ret, _lib, retain: true, release: true);
   }
 
-  static NavigationActionPolicy new1(WebKitPluginBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(
-        _lib._class_NavigationActionPolicy1, _lib._sel_new1);
-    return NavigationActionPolicy._(_ret, _lib, retain: false, release: true);
+  static FrameInfoWrapper new1(WebKitPluginBindings _lib) {
+    final _ret =
+        _lib._objc_msgSend_2(_lib._class_FrameInfoWrapper1, _lib._sel_new1);
+    return FrameInfoWrapper._(_ret, _lib, retain: false, release: true);
   }
 
-  static NavigationActionPolicy allocWithZone_(
+  static FrameInfoWrapper allocWithZone_(
       WebKitPluginBindings _lib, ffi.Pointer<_NSZone> zone) {
     final _ret = _lib._objc_msgSend_3(
-        _lib._class_NavigationActionPolicy1, _lib._sel_allocWithZone_1, zone);
-    return NavigationActionPolicy._(_ret, _lib, retain: false, release: true);
+        _lib._class_FrameInfoWrapper1, _lib._sel_allocWithZone_1, zone);
+    return FrameInfoWrapper._(_ret, _lib, retain: false, release: true);
   }
 
-  static NavigationActionPolicy alloc(WebKitPluginBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(
-        _lib._class_NavigationActionPolicy1, _lib._sel_alloc1);
-    return NavigationActionPolicy._(_ret, _lib, retain: false, release: true);
+  static FrameInfoWrapper alloc(WebKitPluginBindings _lib) {
+    final _ret =
+        _lib._objc_msgSend_2(_lib._class_FrameInfoWrapper1, _lib._sel_alloc1);
+    return FrameInfoWrapper._(_ret, _lib, retain: false, release: true);
   }
 
   static void cancelPreviousPerformRequestsWithTarget_selector_object_(
@@ -56652,7 +56952,7 @@ class NavigationActionPolicy extends NSObject {
       ffi.Pointer<ObjCSel> aSelector,
       NSObject? anArgument) {
     _lib._objc_msgSend_14(
-        _lib._class_NavigationActionPolicy1,
+        _lib._class_FrameInfoWrapper1,
         _lib._sel_cancelPreviousPerformRequestsWithTarget_selector_object_1,
         aTarget._id,
         aSelector,
@@ -56661,43 +56961,216 @@ class NavigationActionPolicy extends NSObject {
 
   static void cancelPreviousPerformRequestsWithTarget_(
       WebKitPluginBindings _lib, NSObject aTarget) {
-    _lib._objc_msgSend_15(_lib._class_NavigationActionPolicy1,
+    _lib._objc_msgSend_15(_lib._class_FrameInfoWrapper1,
         _lib._sel_cancelPreviousPerformRequestsWithTarget_1, aTarget._id);
   }
 
   static bool getAccessInstanceVariablesDirectly(WebKitPluginBindings _lib) {
-    return _lib._objc_msgSend_12(_lib._class_NavigationActionPolicy1,
+    return _lib._objc_msgSend_12(_lib._class_FrameInfoWrapper1,
         _lib._sel_accessInstanceVariablesDirectly1);
   }
 
   static bool useStoredAccessor(WebKitPluginBindings _lib) {
     return _lib._objc_msgSend_12(
-        _lib._class_NavigationActionPolicy1, _lib._sel_useStoredAccessor1);
+        _lib._class_FrameInfoWrapper1, _lib._sel_useStoredAccessor1);
   }
 
   static NSSet keyPathsForValuesAffectingValueForKey_(
       WebKitPluginBindings _lib, NSString key) {
-    final _ret = _lib._objc_msgSend_55(_lib._class_NavigationActionPolicy1,
+    final _ret = _lib._objc_msgSend_55(_lib._class_FrameInfoWrapper1,
         _lib._sel_keyPathsForValuesAffectingValueForKey_1, key._id);
     return NSSet._(_ret, _lib, retain: true, release: true);
   }
 
   static bool automaticallyNotifiesObserversForKey_(
       WebKitPluginBindings _lib, NSString key) {
-    return _lib._objc_msgSend_56(_lib._class_NavigationActionPolicy1,
+    return _lib._objc_msgSend_56(_lib._class_FrameInfoWrapper1,
         _lib._sel_automaticallyNotifiesObserversForKey_1, key._id);
   }
 
   static NSArray classFallbacksForKeyedArchiver(WebKitPluginBindings _lib) {
-    final _ret = _lib._objc_msgSend_77(_lib._class_NavigationActionPolicy1,
+    final _ret = _lib._objc_msgSend_77(_lib._class_FrameInfoWrapper1,
         _lib._sel_classFallbacksForKeyedArchiver1);
     return NSArray._(_ret, _lib, retain: true, release: true);
   }
 
   static NSObject classForKeyedUnarchiver(WebKitPluginBindings _lib) {
-    final _ret = _lib._objc_msgSend_2(_lib._class_NavigationActionPolicy1,
+    final _ret = _lib._objc_msgSend_2(
+        _lib._class_FrameInfoWrapper1, _lib._sel_classForKeyedUnarchiver1);
+    return NSObject._(_ret, _lib, retain: true, release: true);
+  }
+}
+
+class WKFrameInfo extends _ObjCWrapper {
+  WKFrameInfo._(ffi.Pointer<ObjCObject> id, WebKitPluginBindings lib,
+      {bool retain = false, bool release = false})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a [WKFrameInfo] that points to the same underlying object as [other].
+  static WKFrameInfo castFrom<T extends _ObjCWrapper>(T other) {
+    return WKFrameInfo._(other._id, other._lib, retain: true, release: true);
+  }
+
+  /// Returns a [WKFrameInfo] that wraps the given raw object pointer.
+  static WKFrameInfo castFromPointer(
+      WebKitPluginBindings lib, ffi.Pointer<ObjCObject> other,
+      {bool retain = false, bool release = false}) {
+    return WKFrameInfo._(other, lib, retain: retain, release: release);
+  }
+
+  /// Returns whether [obj] is an instance of [WKFrameInfo].
+  static bool isInstance(_ObjCWrapper obj) {
+    return obj._lib._objc_msgSend_0(
+        obj._id, obj._lib._sel_isKindOfClass_1, obj._lib._class_WKFrameInfo1);
+  }
+}
+
+class NavigationActionWrapper extends NSObject {
+  NavigationActionWrapper._(
+      ffi.Pointer<ObjCObject> id, WebKitPluginBindings lib,
+      {bool retain = false, bool release = false})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a [NavigationActionWrapper] that points to the same underlying object as [other].
+  static NavigationActionWrapper castFrom<T extends _ObjCWrapper>(T other) {
+    return NavigationActionWrapper._(other._id, other._lib,
+        retain: true, release: true);
+  }
+
+  /// Returns a [NavigationActionWrapper] that wraps the given raw object pointer.
+  static NavigationActionWrapper castFromPointer(
+      WebKitPluginBindings lib, ffi.Pointer<ObjCObject> other,
+      {bool retain = false, bool release = false}) {
+    return NavigationActionWrapper._(other, lib,
+        retain: retain, release: release);
+  }
+
+  /// Returns whether [obj] is an instance of [NavigationActionWrapper].
+  static bool isInstance(_ObjCWrapper obj) {
+    return obj._lib._objc_msgSend_0(obj._id, obj._lib._sel_isKindOfClass_1,
+        obj._lib._class_NavigationActionWrapper1);
+  }
+
+  NavigationActionWrapper initWithAction_(WKNavigationAction action) {
+    final _ret =
+        _lib._objc_msgSend_889(_id, _lib._sel_initWithAction_1, action._id);
+    return NavigationActionWrapper._(_ret, _lib, retain: true, release: true);
+  }
+
+  NSURLRequest get request {
+    final _ret = _lib._objc_msgSend_785(_id, _lib._sel_request1);
+    return NSURLRequest._(_ret, _lib, retain: true, release: true);
+  }
+
+  FrameInfoWrapper? get targetFrame {
+    final _ret = _lib._objc_msgSend_890(_id, _lib._sel_targetFrame1);
+    return _ret.address == 0
+        ? null
+        : FrameInfoWrapper._(_ret, _lib, retain: true, release: true);
+  }
+
+  @override
+  NavigationActionWrapper init() {
+    final _ret = _lib._objc_msgSend_2(_id, _lib._sel_init1);
+    return NavigationActionWrapper._(_ret, _lib, retain: true, release: true);
+  }
+
+  static NavigationActionWrapper new1(WebKitPluginBindings _lib) {
+    final _ret = _lib._objc_msgSend_2(
+        _lib._class_NavigationActionWrapper1, _lib._sel_new1);
+    return NavigationActionWrapper._(_ret, _lib, retain: false, release: true);
+  }
+
+  static NavigationActionWrapper allocWithZone_(
+      WebKitPluginBindings _lib, ffi.Pointer<_NSZone> zone) {
+    final _ret = _lib._objc_msgSend_3(
+        _lib._class_NavigationActionWrapper1, _lib._sel_allocWithZone_1, zone);
+    return NavigationActionWrapper._(_ret, _lib, retain: false, release: true);
+  }
+
+  static NavigationActionWrapper alloc(WebKitPluginBindings _lib) {
+    final _ret = _lib._objc_msgSend_2(
+        _lib._class_NavigationActionWrapper1, _lib._sel_alloc1);
+    return NavigationActionWrapper._(_ret, _lib, retain: false, release: true);
+  }
+
+  static void cancelPreviousPerformRequestsWithTarget_selector_object_(
+      WebKitPluginBindings _lib,
+      NSObject aTarget,
+      ffi.Pointer<ObjCSel> aSelector,
+      NSObject? anArgument) {
+    _lib._objc_msgSend_14(
+        _lib._class_NavigationActionWrapper1,
+        _lib._sel_cancelPreviousPerformRequestsWithTarget_selector_object_1,
+        aTarget._id,
+        aSelector,
+        anArgument?._id ?? ffi.nullptr);
+  }
+
+  static void cancelPreviousPerformRequestsWithTarget_(
+      WebKitPluginBindings _lib, NSObject aTarget) {
+    _lib._objc_msgSend_15(_lib._class_NavigationActionWrapper1,
+        _lib._sel_cancelPreviousPerformRequestsWithTarget_1, aTarget._id);
+  }
+
+  static bool getAccessInstanceVariablesDirectly(WebKitPluginBindings _lib) {
+    return _lib._objc_msgSend_12(_lib._class_NavigationActionWrapper1,
+        _lib._sel_accessInstanceVariablesDirectly1);
+  }
+
+  static bool useStoredAccessor(WebKitPluginBindings _lib) {
+    return _lib._objc_msgSend_12(
+        _lib._class_NavigationActionWrapper1, _lib._sel_useStoredAccessor1);
+  }
+
+  static NSSet keyPathsForValuesAffectingValueForKey_(
+      WebKitPluginBindings _lib, NSString key) {
+    final _ret = _lib._objc_msgSend_55(_lib._class_NavigationActionWrapper1,
+        _lib._sel_keyPathsForValuesAffectingValueForKey_1, key._id);
+    return NSSet._(_ret, _lib, retain: true, release: true);
+  }
+
+  static bool automaticallyNotifiesObserversForKey_(
+      WebKitPluginBindings _lib, NSString key) {
+    return _lib._objc_msgSend_56(_lib._class_NavigationActionWrapper1,
+        _lib._sel_automaticallyNotifiesObserversForKey_1, key._id);
+  }
+
+  static NSArray classFallbacksForKeyedArchiver(WebKitPluginBindings _lib) {
+    final _ret = _lib._objc_msgSend_77(_lib._class_NavigationActionWrapper1,
+        _lib._sel_classFallbacksForKeyedArchiver1);
+    return NSArray._(_ret, _lib, retain: true, release: true);
+  }
+
+  static NSObject classForKeyedUnarchiver(WebKitPluginBindings _lib) {
+    final _ret = _lib._objc_msgSend_2(_lib._class_NavigationActionWrapper1,
         _lib._sel_classForKeyedUnarchiver1);
     return NSObject._(_ret, _lib, retain: true, release: true);
+  }
+}
+
+class WKNavigationAction extends _ObjCWrapper {
+  WKNavigationAction._(ffi.Pointer<ObjCObject> id, WebKitPluginBindings lib,
+      {bool retain = false, bool release = false})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a [WKNavigationAction] that points to the same underlying object as [other].
+  static WKNavigationAction castFrom<T extends _ObjCWrapper>(T other) {
+    return WKNavigationAction._(other._id, other._lib,
+        retain: true, release: true);
+  }
+
+  /// Returns a [WKNavigationAction] that wraps the given raw object pointer.
+  static WKNavigationAction castFromPointer(
+      WebKitPluginBindings lib, ffi.Pointer<ObjCObject> other,
+      {bool retain = false, bool release = false}) {
+    return WKNavigationAction._(other, lib, retain: retain, release: release);
+  }
+
+  /// Returns whether [obj] is an instance of [WKNavigationAction].
+  static bool isInstance(_ObjCWrapper obj) {
+    return obj._lib._objc_msgSend_0(obj._id, obj._lib._sel_isKindOfClass_1,
+        obj._lib._class_WKNavigationAction1);
   }
 }
 
@@ -56727,46 +57200,144 @@ class NavigationDelegateWrapper extends NSObject {
         obj._lib._class_NavigationDelegateWrapper1);
   }
 
-  ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt?
+  ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt?
       get decidePolicyForNavigationAction {
     final _ret =
-        _lib._objc_msgSend_888(_id, _lib._sel_decidePolicyForNavigationAction1);
+        _lib._objc_msgSend_891(_id, _lib._sel_decidePolicyForNavigationAction1);
     return _ret.address == 0
         ? null
-        : ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt._(_ret, _lib,
+        : ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt._(_ret, _lib,
             retain: true, release: true);
   }
 
   set decidePolicyForNavigationAction(
-      ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt? value) {
-    return _lib._objc_msgSend_889(
+      ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt? value) {
+    return _lib._objc_msgSend_892(
         _id,
         _lib._sel_setDecidePolicyForNavigationAction_1,
         value?._id ?? ffi.nullptr);
-  }
-
-  ObjCBlock_ffiVoid? get bloop {
-    final _ret = _lib._objc_msgSend_508(_id, _lib._sel_bloop1);
-    return _ret.address == 0
-        ? null
-        : ObjCBlock_ffiVoid._(_ret, _lib, retain: true, release: true);
-  }
-
-  set bloop(ObjCBlock_ffiVoid? value) {
-    return _lib._objc_msgSend_509(
-        _id, _lib._sel_setBloop_1, value?._id ?? ffi.nullptr);
   }
 
   void webView_decidePolicyForNavigationAction_decisionHandler_(
       WKWebView webView,
       WKNavigationAction navigationAction,
       NSObject decisionHandler) {
-    _lib._objc_msgSend_890(
+    _lib._objc_msgSend_893(
         _id,
         _lib._sel_webView_decidePolicyForNavigationAction_decisionHandler_1,
         webView._id,
         navigationAction._id,
         decisionHandler._id);
+  }
+
+  ObjCBlock_ffiVoid_StrongRefNSURL? get didStartProvisionalNavigation {
+    final _ret =
+        _lib._objc_msgSend_894(_id, _lib._sel_didStartProvisionalNavigation1);
+    return _ret.address == 0
+        ? null
+        : ObjCBlock_ffiVoid_StrongRefNSURL._(_ret, _lib,
+            retain: true, release: true);
+  }
+
+  set didStartProvisionalNavigation(ObjCBlock_ffiVoid_StrongRefNSURL? value) {
+    return _lib._objc_msgSend_895(
+        _id,
+        _lib._sel_setDidStartProvisionalNavigation_1,
+        value?._id ?? ffi.nullptr);
+  }
+
+  void webView_didStartProvisionalNavigation_(
+      WKWebView webView, WKNavigation navigation) {
+    _lib._objc_msgSend_896(
+        _id,
+        _lib._sel_webView_didStartProvisionalNavigation_1,
+        webView._id,
+        navigation._id);
+  }
+
+  ObjCBlock_ffiVoid_StrongRefNSURL? get didFinishNavigation {
+    final _ret = _lib._objc_msgSend_894(_id, _lib._sel_didFinishNavigation1);
+    return _ret.address == 0
+        ? null
+        : ObjCBlock_ffiVoid_StrongRefNSURL._(_ret, _lib,
+            retain: true, release: true);
+  }
+
+  set didFinishNavigation(ObjCBlock_ffiVoid_StrongRefNSURL? value) {
+    return _lib._objc_msgSend_895(
+        _id, _lib._sel_setDidFinishNavigation_1, value?._id ?? ffi.nullptr);
+  }
+
+  void webView_didFinishNavigation_(
+      WKWebView webView, WKNavigation navigation) {
+    _lib._objc_msgSend_896(_id, _lib._sel_webView_didFinishNavigation_1,
+        webView._id, navigation._id);
+  }
+
+  ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL? get didFailNavigation {
+    final _ret = _lib._objc_msgSend_898(_id, _lib._sel_didFailNavigation1);
+    return _ret.address == 0
+        ? null
+        : ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL._(_ret, _lib,
+            retain: true, release: true);
+  }
+
+  set didFailNavigation(
+      ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL? value) {
+    return _lib._objc_msgSend_899(
+        _id, _lib._sel_setDidFailNavigation_1, value?._id ?? ffi.nullptr);
+  }
+
+  void webView_didFailNavigation_withError_(
+      WKWebView webView, WKNavigation navigation, NSError error) {
+    _lib._objc_msgSend_900(_id, _lib._sel_webView_didFailNavigation_withError_1,
+        webView._id, navigation._id, error._id);
+  }
+
+  ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL?
+      get didFailProvisionalNavigation {
+    final _ret =
+        _lib._objc_msgSend_898(_id, _lib._sel_didFailProvisionalNavigation1);
+    return _ret.address == 0
+        ? null
+        : ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL._(_ret, _lib,
+            retain: true, release: true);
+  }
+
+  set didFailProvisionalNavigation(
+      ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL? value) {
+    return _lib._objc_msgSend_899(_id,
+        _lib._sel_setDidFailProvisionalNavigation_1, value?._id ?? ffi.nullptr);
+  }
+
+  void webView_didFailProvisionalNavigation_withError_(
+      WKWebView webView, WKNavigation navigation, NSError error) {
+    _lib._objc_msgSend_900(
+        _id,
+        _lib._sel_webView_didFailProvisionalNavigation_withError_1,
+        webView._id,
+        navigation._id,
+        error._id);
+  }
+
+  ObjCBlock_ffiVoid? get webContentProcessDidTerminate {
+    final _ret =
+        _lib._objc_msgSend_508(_id, _lib._sel_webContentProcessDidTerminate1);
+    return _ret.address == 0
+        ? null
+        : ObjCBlock_ffiVoid._(_ret, _lib, retain: true, release: true);
+  }
+
+  set webContentProcessDidTerminate(ObjCBlock_ffiVoid? value) {
+    return _lib._objc_msgSend_509(
+        _id,
+        _lib._sel_setWebContentProcessDidTerminate_1,
+        value?._id ?? ffi.nullptr);
+  }
+
+  void webViewWebContentProcessDidTerminate_(WKWebView webView) {
+    _lib._objc_msgSend_901(
+        _id, _lib._sel_webViewWebContentProcessDidTerminate_1, webView._id);
   }
 
   @override
@@ -56852,7 +57423,7 @@ class NavigationDelegateWrapper extends NSObject {
   }
 }
 
-void _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_fnPtrTrampoline(
+void _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_fnPtrTrampoline(
         ffi.Pointer<_ObjCBlock> block,
         ffi.Pointer<ObjCObject> arg0,
         ffi.Pointer<ObjCObject> arg1) =>
@@ -56864,38 +57435,40 @@ void _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_fnPtrTrampoline(
         .asFunction<
             void Function(ffi.Pointer<ObjCObject>,
                 ffi.Pointer<ObjCObject>)>()(arg0, arg1);
-final _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_closureRegistry =
+final _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_closureRegistry =
     <int, void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>{};
-int _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_closureRegistryIndex =
+int _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_closureRegistryIndex =
     0;
 ffi.Pointer<ffi.Void>
-    _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_registerClosure(
+    _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_registerClosure(
         void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>) fn) {
   final id =
-      ++_ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_closureRegistryIndex;
-  _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_closureRegistry[id] = fn;
+      ++_ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_closureRegistryIndex;
+  _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_closureRegistry[
+      id] = fn;
   return ffi.Pointer<ffi.Void>.fromAddress(id);
 }
 
-void _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_closureTrampoline(
+void _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_closureTrampoline(
         ffi.Pointer<_ObjCBlock> block,
         ffi.Pointer<ObjCObject> arg0,
         ffi.Pointer<ObjCObject> arg1) =>
-    _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_closureRegistry[
+    _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_closureRegistry[
         block.ref.target.address]!(arg0, arg1);
 
-class ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt
+class ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt
     extends _ObjCBlockBase {
-  ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt._(
+  ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt._(
       ffi.Pointer<_ObjCBlock> id, WebKitPluginBindings lib,
       {bool retain = false, bool release = true})
       : super._(id, lib, retain: retain, release: release);
 
   /// Returns a block that wraps the given raw block pointer.
-  static ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt castFromPointer(
-      WebKitPluginBindings lib, ffi.Pointer<_ObjCBlock> pointer,
-      {bool retain = false, bool release = false}) {
-    return ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt._(pointer, lib,
+  static ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt
+      castFromPointer(WebKitPluginBindings lib, ffi.Pointer<_ObjCBlock> pointer,
+          {bool retain = false, bool release = false}) {
+    return ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt._(
+        pointer, lib,
         retain: retain, release: release);
   }
 
@@ -56904,7 +57477,7 @@ class ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt.fromFunctionPointer(
+  ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt.fromFunctionPointer(
       WebKitPluginBindings lib,
       ffi.Pointer<
               ffi.NativeFunction<
@@ -56918,7 +57491,7 @@ class ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt
                                 ffi.Pointer<_ObjCBlock>,
                                 ffi.Pointer<ObjCObject>,
                                 ffi.Pointer<ObjCObject>)>(
-                        _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_fnPtrTrampoline)
+                        _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_fnPtrTrampoline)
                     .cast(),
                 ptr.cast()),
             lib);
@@ -56929,21 +57502,19 @@ class ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt
   /// This block must be invoked by native code running on the same thread as
   /// the isolate that registered it. Invoking the block on the wrong thread
   /// will result in a crash.
-  ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt.fromFunction(
+  ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt.fromFunction(
       WebKitPluginBindings lib,
-      void Function(WKNavigationAction, Closure_Void_Int) fn)
+      void Function(NavigationActionWrapper, Closure_Void_Int) fn)
       : this._(
             lib._newBlock1(
                 _dartFuncTrampoline ??= ffi.Pointer.fromFunction<
                             ffi.Void Function(
-                                ffi.Pointer<_ObjCBlock>,
-                                ffi.Pointer<ObjCObject>,
-                                ffi.Pointer<ObjCObject>)>(
-                        _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_closureTrampoline)
+                                ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>(
+                        _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_closureTrampoline)
                     .cast(),
-                _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_registerClosure(
+                _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_registerClosure(
                     (ffi.Pointer<ObjCObject> arg0, ffi.Pointer<ObjCObject> arg1) => fn(
-                        WKNavigationAction._(arg0, lib, retain: true, release: true),
+                        NavigationActionWrapper._(arg0, lib, retain: true, release: true),
                         Closure_Void_Int._(arg1, lib, retain: true, release: true)))),
             lib);
   static ffi.Pointer<ffi.Void>? _dartFuncTrampoline;
@@ -56957,62 +57528,40 @@ class ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt
   ///
   /// Note that unlike the default behavior of NativeCallable.listener, listener
   /// blocks do not keep the isolate alive.
-  ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt.listener(
+  ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt.listener(
       WebKitPluginBindings lib,
-      void Function(WKNavigationAction, Closure_Void_Int) fn)
+      void Function(NavigationActionWrapper, Closure_Void_Int) fn)
       : this._(
             lib._newBlock1(
-                (_dartFuncListenerTrampoline ??= ffi.NativeCallable<
-                            ffi.Void Function(
-                                ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>.listener(
-                        _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_closureTrampoline)
-                      ..keepIsolateAlive = false)
+                (_dartFuncListenerTrampoline ??=
+                        ffi.NativeCallable<ffi.Void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>.listener(
+                            _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_closureTrampoline)
+                          ..keepIsolateAlive = false)
                     .nativeFunction
                     .cast(),
-                _ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt_registerClosure(
-                    (ffi.Pointer<ObjCObject> arg0, ffi.Pointer<ObjCObject> arg1) => fn(
-                        WKNavigationAction._(arg0, lib, retain: true, release: true),
-                        Closure_Void_Int._(arg1, lib, retain: true, release: true)))),
+                _ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt_registerClosure(
+                    (ffi.Pointer<ObjCObject> arg0, ffi.Pointer<ObjCObject> arg1) =>
+                        fn(
+                            NavigationActionWrapper._(
+                                arg0, lib, retain: true, release: true),
+                            Closure_Void_Int._(arg1, lib,
+                                retain: true, release: true)))),
             lib);
   static ffi.NativeCallable<
       ffi.Void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>,
           ffi.Pointer<ObjCObject>)>? _dartFuncListenerTrampoline;
 
-  void call(WKNavigationAction arg0, Closure_Void_Int arg1) => _id.ref.invoke
-      .cast<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Pointer<_ObjCBlock> block,
-                  ffi.Pointer<ObjCObject> arg0,
-                  ffi.Pointer<ObjCObject> arg1)>>()
-      .asFunction<
-          void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>,
-              ffi.Pointer<ObjCObject>)>()(_id, arg0._id, arg1._id);
-}
-
-class WKNavigationAction extends _ObjCWrapper {
-  WKNavigationAction._(ffi.Pointer<ObjCObject> id, WebKitPluginBindings lib,
-      {bool retain = false, bool release = false})
-      : super._(id, lib, retain: retain, release: release);
-
-  /// Returns a [WKNavigationAction] that points to the same underlying object as [other].
-  static WKNavigationAction castFrom<T extends _ObjCWrapper>(T other) {
-    return WKNavigationAction._(other._id, other._lib,
-        retain: true, release: true);
-  }
-
-  /// Returns a [WKNavigationAction] that wraps the given raw object pointer.
-  static WKNavigationAction castFromPointer(
-      WebKitPluginBindings lib, ffi.Pointer<ObjCObject> other,
-      {bool retain = false, bool release = false}) {
-    return WKNavigationAction._(other, lib, retain: retain, release: release);
-  }
-
-  /// Returns whether [obj] is an instance of [WKNavigationAction].
-  static bool isInstance(_ObjCWrapper obj) {
-    return obj._lib._objc_msgSend_0(obj._id, obj._lib._sel_isKindOfClass_1,
-        obj._lib._class_WKNavigationAction1);
-  }
+  void call(NavigationActionWrapper arg0, Closure_Void_Int arg1) =>
+      _id.ref.invoke
+          .cast<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Pointer<_ObjCBlock> block,
+                      ffi.Pointer<ObjCObject> arg0,
+                      ffi.Pointer<ObjCObject> arg1)>>()
+          .asFunction<
+              void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>,
+                  ffi.Pointer<ObjCObject>)>()(_id, arg0._id, arg1._id);
 }
 
 class WKWebView extends _ObjCWrapper {
@@ -57036,6 +57585,513 @@ class WKWebView extends _ObjCWrapper {
   static bool isInstance(_ObjCWrapper obj) {
     return obj._lib._objc_msgSend_0(
         obj._id, obj._lib._sel_isKindOfClass_1, obj._lib._class_WKWebView1);
+  }
+}
+
+void _ObjCBlock_ffiVoid_StrongRefNSURL_fnPtrTrampoline(
+        ffi.Pointer<_ObjCBlock> block, ffi.Pointer<ObjCObject> arg0) =>
+    block.ref.target
+        .cast<
+            ffi
+            .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>()
+        .asFunction<void Function(ffi.Pointer<ObjCObject>)>()(arg0);
+final _ObjCBlock_ffiVoid_StrongRefNSURL_closureRegistry =
+    <int, void Function(ffi.Pointer<ObjCObject>)>{};
+int _ObjCBlock_ffiVoid_StrongRefNSURL_closureRegistryIndex = 0;
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_StrongRefNSURL_registerClosure(
+    void Function(ffi.Pointer<ObjCObject>) fn) {
+  final id = ++_ObjCBlock_ffiVoid_StrongRefNSURL_closureRegistryIndex;
+  _ObjCBlock_ffiVoid_StrongRefNSURL_closureRegistry[id] = fn;
+  return ffi.Pointer<ffi.Void>.fromAddress(id);
+}
+
+void _ObjCBlock_ffiVoid_StrongRefNSURL_closureTrampoline(
+        ffi.Pointer<_ObjCBlock> block, ffi.Pointer<ObjCObject> arg0) =>
+    _ObjCBlock_ffiVoid_StrongRefNSURL_closureRegistry[
+        block.ref.target.address]!(arg0);
+
+class ObjCBlock_ffiVoid_StrongRefNSURL extends _ObjCBlockBase {
+  ObjCBlock_ffiVoid_StrongRefNSURL._(
+      ffi.Pointer<_ObjCBlock> id, WebKitPluginBindings lib,
+      {bool retain = false, bool release = true})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a block that wraps the given raw block pointer.
+  static ObjCBlock_ffiVoid_StrongRefNSURL castFromPointer(
+      WebKitPluginBindings lib, ffi.Pointer<_ObjCBlock> pointer,
+      {bool retain = false, bool release = false}) {
+    return ObjCBlock_ffiVoid_StrongRefNSURL._(pointer, lib,
+        retain: retain, release: release);
+  }
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ObjCBlock_ffiVoid_StrongRefNSURL.fromFunctionPointer(
+      WebKitPluginBindings lib,
+      ffi.Pointer<
+              ffi
+              .NativeFunction<ffi.Void Function(ffi.Pointer<ObjCObject> arg0)>>
+          ptr)
+      : this._(
+            lib._newBlock1(
+                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Void Function(ffi.Pointer<_ObjCBlock>,
+                                ffi.Pointer<ObjCObject>)>(
+                        _ObjCBlock_ffiVoid_StrongRefNSURL_fnPtrTrampoline)
+                    .cast(),
+                ptr.cast()),
+            lib);
+  static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ObjCBlock_ffiVoid_StrongRefNSURL.fromFunction(
+      WebKitPluginBindings lib, void Function(StrongRef_NSURL?) fn)
+      : this._(
+            lib._newBlock1(
+                _dartFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Void Function(ffi.Pointer<_ObjCBlock>,
+                                ffi.Pointer<ObjCObject>)>(
+                        _ObjCBlock_ffiVoid_StrongRefNSURL_closureTrampoline)
+                    .cast(),
+                _ObjCBlock_ffiVoid_StrongRefNSURL_registerClosure(
+                    (ffi.Pointer<ObjCObject> arg0) => fn(arg0.address == 0
+                        ? null
+                        : StrongRef_NSURL._(arg0, lib, retain: true, release: true)))),
+            lib);
+  static ffi.Pointer<ffi.Void>? _dartFuncTrampoline;
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// Note that unlike the default behavior of NativeCallable.listener, listener
+  /// blocks do not keep the isolate alive.
+  ObjCBlock_ffiVoid_StrongRefNSURL.listener(
+      WebKitPluginBindings lib, void Function(StrongRef_NSURL?) fn)
+      : this._(
+            lib._newBlock1(
+                (_dartFuncListenerTrampoline ??= ffi.NativeCallable<
+                            ffi.Void Function(ffi.Pointer<_ObjCBlock>,
+                                ffi.Pointer<ObjCObject>)>.listener(
+                        _ObjCBlock_ffiVoid_StrongRefNSURL_closureTrampoline)
+                      ..keepIsolateAlive = false)
+                    .nativeFunction
+                    .cast(),
+                _ObjCBlock_ffiVoid_StrongRefNSURL_registerClosure(
+                    (ffi.Pointer<ObjCObject> arg0) => fn(arg0.address == 0
+                        ? null
+                        : StrongRef_NSURL._(arg0, lib, retain: true, release: true)))),
+            lib);
+  static ffi.NativeCallable<
+          ffi.Void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>)>?
+      _dartFuncListenerTrampoline;
+
+  void call(StrongRef_NSURL? arg0) => _id.ref.invoke
+      .cast<
+          ffi.NativeFunction<
+              ffi.Void Function(ffi.Pointer<_ObjCBlock> block,
+                  ffi.Pointer<ObjCObject> arg0)>>()
+      .asFunction<
+          void Function(ffi.Pointer<_ObjCBlock>,
+              ffi.Pointer<ObjCObject>)>()(_id, arg0?._id ?? ffi.nullptr);
+}
+
+class StrongRef_NSURL extends NSObject {
+  StrongRef_NSURL._(ffi.Pointer<ObjCObject> id, WebKitPluginBindings lib,
+      {bool retain = false, bool release = false})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a [StrongRef_NSURL] that points to the same underlying object as [other].
+  static StrongRef_NSURL castFrom<T extends _ObjCWrapper>(T other) {
+    return StrongRef_NSURL._(other._id, other._lib,
+        retain: true, release: true);
+  }
+
+  /// Returns a [StrongRef_NSURL] that wraps the given raw object pointer.
+  static StrongRef_NSURL castFromPointer(
+      WebKitPluginBindings lib, ffi.Pointer<ObjCObject> other,
+      {bool retain = false, bool release = false}) {
+    return StrongRef_NSURL._(other, lib, retain: retain, release: release);
+  }
+
+  /// Returns whether [obj] is an instance of [StrongRef_NSURL].
+  static bool isInstance(_ObjCWrapper obj) {
+    return obj._lib._objc_msgSend_0(obj._id, obj._lib._sel_isKindOfClass_1,
+        obj._lib._class_StrongRef_NSURL1);
+  }
+
+  NSURL get value {
+    final _ret = _lib._objc_msgSend_413(_id, _lib._sel_value1);
+    return NSURL._(_ret, _lib, retain: true, release: true);
+  }
+
+  void drop() {
+    _lib._objc_msgSend_1(_id, _lib._sel_drop1);
+  }
+
+  @override
+  StrongRef_NSURL init() {
+    final _ret = _lib._objc_msgSend_2(_id, _lib._sel_init1);
+    return StrongRef_NSURL._(_ret, _lib, retain: true, release: true);
+  }
+
+  static StrongRef_NSURL new1(WebKitPluginBindings _lib) {
+    final _ret =
+        _lib._objc_msgSend_2(_lib._class_StrongRef_NSURL1, _lib._sel_new1);
+    return StrongRef_NSURL._(_ret, _lib, retain: false, release: true);
+  }
+
+  static StrongRef_NSURL allocWithZone_(
+      WebKitPluginBindings _lib, ffi.Pointer<_NSZone> zone) {
+    final _ret = _lib._objc_msgSend_3(
+        _lib._class_StrongRef_NSURL1, _lib._sel_allocWithZone_1, zone);
+    return StrongRef_NSURL._(_ret, _lib, retain: false, release: true);
+  }
+
+  static StrongRef_NSURL alloc(WebKitPluginBindings _lib) {
+    final _ret =
+        _lib._objc_msgSend_2(_lib._class_StrongRef_NSURL1, _lib._sel_alloc1);
+    return StrongRef_NSURL._(_ret, _lib, retain: false, release: true);
+  }
+
+  static void cancelPreviousPerformRequestsWithTarget_selector_object_(
+      WebKitPluginBindings _lib,
+      NSObject aTarget,
+      ffi.Pointer<ObjCSel> aSelector,
+      NSObject? anArgument) {
+    _lib._objc_msgSend_14(
+        _lib._class_StrongRef_NSURL1,
+        _lib._sel_cancelPreviousPerformRequestsWithTarget_selector_object_1,
+        aTarget._id,
+        aSelector,
+        anArgument?._id ?? ffi.nullptr);
+  }
+
+  static void cancelPreviousPerformRequestsWithTarget_(
+      WebKitPluginBindings _lib, NSObject aTarget) {
+    _lib._objc_msgSend_15(_lib._class_StrongRef_NSURL1,
+        _lib._sel_cancelPreviousPerformRequestsWithTarget_1, aTarget._id);
+  }
+
+  static bool getAccessInstanceVariablesDirectly(WebKitPluginBindings _lib) {
+    return _lib._objc_msgSend_12(_lib._class_StrongRef_NSURL1,
+        _lib._sel_accessInstanceVariablesDirectly1);
+  }
+
+  static bool useStoredAccessor(WebKitPluginBindings _lib) {
+    return _lib._objc_msgSend_12(
+        _lib._class_StrongRef_NSURL1, _lib._sel_useStoredAccessor1);
+  }
+
+  static NSSet keyPathsForValuesAffectingValueForKey_(
+      WebKitPluginBindings _lib, NSString key) {
+    final _ret = _lib._objc_msgSend_55(_lib._class_StrongRef_NSURL1,
+        _lib._sel_keyPathsForValuesAffectingValueForKey_1, key._id);
+    return NSSet._(_ret, _lib, retain: true, release: true);
+  }
+
+  static bool automaticallyNotifiesObserversForKey_(
+      WebKitPluginBindings _lib, NSString key) {
+    return _lib._objc_msgSend_56(_lib._class_StrongRef_NSURL1,
+        _lib._sel_automaticallyNotifiesObserversForKey_1, key._id);
+  }
+
+  static NSArray classFallbacksForKeyedArchiver(WebKitPluginBindings _lib) {
+    final _ret = _lib._objc_msgSend_77(_lib._class_StrongRef_NSURL1,
+        _lib._sel_classFallbacksForKeyedArchiver1);
+    return NSArray._(_ret, _lib, retain: true, release: true);
+  }
+
+  static NSObject classForKeyedUnarchiver(WebKitPluginBindings _lib) {
+    final _ret = _lib._objc_msgSend_2(
+        _lib._class_StrongRef_NSURL1, _lib._sel_classForKeyedUnarchiver1);
+    return NSObject._(_ret, _lib, retain: true, release: true);
+  }
+}
+
+class WKNavigation extends _ObjCWrapper {
+  WKNavigation._(ffi.Pointer<ObjCObject> id, WebKitPluginBindings lib,
+      {bool retain = false, bool release = false})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a [WKNavigation] that points to the same underlying object as [other].
+  static WKNavigation castFrom<T extends _ObjCWrapper>(T other) {
+    return WKNavigation._(other._id, other._lib, retain: true, release: true);
+  }
+
+  /// Returns a [WKNavigation] that wraps the given raw object pointer.
+  static WKNavigation castFromPointer(
+      WebKitPluginBindings lib, ffi.Pointer<ObjCObject> other,
+      {bool retain = false, bool release = false}) {
+    return WKNavigation._(other, lib, retain: retain, release: release);
+  }
+
+  /// Returns whether [obj] is an instance of [WKNavigation].
+  static bool isInstance(_ObjCWrapper obj) {
+    return obj._lib._objc_msgSend_0(
+        obj._id, obj._lib._sel_isKindOfClass_1, obj._lib._class_WKNavigation1);
+  }
+}
+
+void _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_fnPtrTrampoline(
+        ffi.Pointer<_ObjCBlock> block,
+        ffi.Pointer<ObjCObject> arg0,
+        ffi.Pointer<ObjCObject> arg1) =>
+    block.ref.target
+        .cast<
+            ffi.NativeFunction<
+                ffi.Void Function(ffi.Pointer<ObjCObject> arg0,
+                    ffi.Pointer<ObjCObject> arg1)>>()
+        .asFunction<
+            void Function(ffi.Pointer<ObjCObject>,
+                ffi.Pointer<ObjCObject>)>()(arg0, arg1);
+final _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_closureRegistry =
+    <int, void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>{};
+int _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_closureRegistryIndex = 0;
+ffi.Pointer<ffi.Void>
+    _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_registerClosure(
+        void Function(ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>) fn) {
+  final id =
+      ++_ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_closureRegistryIndex;
+  _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_closureRegistry[id] = fn;
+  return ffi.Pointer<ffi.Void>.fromAddress(id);
+}
+
+void _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_closureTrampoline(
+        ffi.Pointer<_ObjCBlock> block,
+        ffi.Pointer<ObjCObject> arg0,
+        ffi.Pointer<ObjCObject> arg1) =>
+    _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_closureRegistry[
+        block.ref.target.address]!(arg0, arg1);
+
+class ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL extends _ObjCBlockBase {
+  ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL._(
+      ffi.Pointer<_ObjCBlock> id, WebKitPluginBindings lib,
+      {bool retain = false, bool release = true})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a block that wraps the given raw block pointer.
+  static ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL castFromPointer(
+      WebKitPluginBindings lib, ffi.Pointer<_ObjCBlock> pointer,
+      {bool retain = false, bool release = false}) {
+    return ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL._(pointer, lib,
+        retain: retain, release: release);
+  }
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL.fromFunctionPointer(
+      WebKitPluginBindings lib,
+      ffi.Pointer<
+              ffi.NativeFunction<
+                  ffi.Void Function(ffi.Pointer<ObjCObject> arg0,
+                      ffi.Pointer<ObjCObject> arg1)>>
+          ptr)
+      : this._(
+            lib._newBlock1(
+                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Void Function(
+                                ffi.Pointer<_ObjCBlock>,
+                                ffi.Pointer<ObjCObject>,
+                                ffi.Pointer<ObjCObject>)>(
+                        _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_fnPtrTrampoline)
+                    .cast(),
+                ptr.cast()),
+            lib);
+  static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL.fromFunction(
+      WebKitPluginBindings lib,
+      void Function(StrongRef_NSError, StrongRef_NSURL?) fn)
+      : this._(
+            lib._newBlock1(
+                _dartFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Void Function(
+                                ffi.Pointer<_ObjCBlock>,
+                                ffi.Pointer<ObjCObject>,
+                                ffi.Pointer<ObjCObject>)>(
+                        _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_closureTrampoline)
+                    .cast(),
+                _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_registerClosure(
+                    (ffi.Pointer<ObjCObject> arg0, ffi.Pointer<ObjCObject> arg1) => fn(
+                        StrongRef_NSError._(arg0, lib, retain: true, release: true),
+                        arg1.address == 0 ? null : StrongRef_NSURL._(arg1, lib, retain: true, release: true)))),
+            lib);
+  static ffi.Pointer<ffi.Void>? _dartFuncTrampoline;
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// Note that unlike the default behavior of NativeCallable.listener, listener
+  /// blocks do not keep the isolate alive.
+  ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL.listener(
+      WebKitPluginBindings lib,
+      void Function(StrongRef_NSError, StrongRef_NSURL?) fn)
+      : this._(
+            lib._newBlock1(
+                (_dartFuncListenerTrampoline ??=
+                        ffi.NativeCallable<ffi.Void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>, ffi.Pointer<ObjCObject>)>.listener(
+                            _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_closureTrampoline)
+                          ..keepIsolateAlive = false)
+                    .nativeFunction
+                    .cast(),
+                _ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL_registerClosure(
+                    (ffi.Pointer<ObjCObject> arg0, ffi.Pointer<ObjCObject> arg1) => fn(
+                        StrongRef_NSError._(arg0, lib,
+                            retain: true, release: true),
+                        arg1.address == 0
+                            ? null
+                            : StrongRef_NSURL._(arg1, lib, retain: true, release: true)))),
+            lib);
+  static ffi.NativeCallable<
+      ffi.Void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>,
+          ffi.Pointer<ObjCObject>)>? _dartFuncListenerTrampoline;
+
+  void call(StrongRef_NSError arg0, StrongRef_NSURL? arg1) => _id.ref.invoke
+          .cast<
+              ffi.NativeFunction<
+                  ffi.Void Function(
+                      ffi.Pointer<_ObjCBlock> block,
+                      ffi.Pointer<ObjCObject> arg0,
+                      ffi.Pointer<ObjCObject> arg1)>>()
+          .asFunction<
+              void Function(ffi.Pointer<_ObjCBlock>, ffi.Pointer<ObjCObject>,
+                  ffi.Pointer<ObjCObject>)>()(
+      _id, arg0._id, arg1?._id ?? ffi.nullptr);
+}
+
+class StrongRef_NSError extends NSObject {
+  StrongRef_NSError._(ffi.Pointer<ObjCObject> id, WebKitPluginBindings lib,
+      {bool retain = false, bool release = false})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a [StrongRef_NSError] that points to the same underlying object as [other].
+  static StrongRef_NSError castFrom<T extends _ObjCWrapper>(T other) {
+    return StrongRef_NSError._(other._id, other._lib,
+        retain: true, release: true);
+  }
+
+  /// Returns a [StrongRef_NSError] that wraps the given raw object pointer.
+  static StrongRef_NSError castFromPointer(
+      WebKitPluginBindings lib, ffi.Pointer<ObjCObject> other,
+      {bool retain = false, bool release = false}) {
+    return StrongRef_NSError._(other, lib, retain: retain, release: release);
+  }
+
+  /// Returns whether [obj] is an instance of [StrongRef_NSError].
+  static bool isInstance(_ObjCWrapper obj) {
+    return obj._lib._objc_msgSend_0(obj._id, obj._lib._sel_isKindOfClass_1,
+        obj._lib._class_StrongRef_NSError1);
+  }
+
+  NSError get value {
+    final _ret = _lib._objc_msgSend_897(_id, _lib._sel_value1);
+    return NSError._(_ret, _lib, retain: true, release: true);
+  }
+
+  void drop() {
+    _lib._objc_msgSend_1(_id, _lib._sel_drop1);
+  }
+
+  @override
+  StrongRef_NSError init() {
+    final _ret = _lib._objc_msgSend_2(_id, _lib._sel_init1);
+    return StrongRef_NSError._(_ret, _lib, retain: true, release: true);
+  }
+
+  static StrongRef_NSError new1(WebKitPluginBindings _lib) {
+    final _ret =
+        _lib._objc_msgSend_2(_lib._class_StrongRef_NSError1, _lib._sel_new1);
+    return StrongRef_NSError._(_ret, _lib, retain: false, release: true);
+  }
+
+  static StrongRef_NSError allocWithZone_(
+      WebKitPluginBindings _lib, ffi.Pointer<_NSZone> zone) {
+    final _ret = _lib._objc_msgSend_3(
+        _lib._class_StrongRef_NSError1, _lib._sel_allocWithZone_1, zone);
+    return StrongRef_NSError._(_ret, _lib, retain: false, release: true);
+  }
+
+  static StrongRef_NSError alloc(WebKitPluginBindings _lib) {
+    final _ret =
+        _lib._objc_msgSend_2(_lib._class_StrongRef_NSError1, _lib._sel_alloc1);
+    return StrongRef_NSError._(_ret, _lib, retain: false, release: true);
+  }
+
+  static void cancelPreviousPerformRequestsWithTarget_selector_object_(
+      WebKitPluginBindings _lib,
+      NSObject aTarget,
+      ffi.Pointer<ObjCSel> aSelector,
+      NSObject? anArgument) {
+    _lib._objc_msgSend_14(
+        _lib._class_StrongRef_NSError1,
+        _lib._sel_cancelPreviousPerformRequestsWithTarget_selector_object_1,
+        aTarget._id,
+        aSelector,
+        anArgument?._id ?? ffi.nullptr);
+  }
+
+  static void cancelPreviousPerformRequestsWithTarget_(
+      WebKitPluginBindings _lib, NSObject aTarget) {
+    _lib._objc_msgSend_15(_lib._class_StrongRef_NSError1,
+        _lib._sel_cancelPreviousPerformRequestsWithTarget_1, aTarget._id);
+  }
+
+  static bool getAccessInstanceVariablesDirectly(WebKitPluginBindings _lib) {
+    return _lib._objc_msgSend_12(_lib._class_StrongRef_NSError1,
+        _lib._sel_accessInstanceVariablesDirectly1);
+  }
+
+  static bool useStoredAccessor(WebKitPluginBindings _lib) {
+    return _lib._objc_msgSend_12(
+        _lib._class_StrongRef_NSError1, _lib._sel_useStoredAccessor1);
+  }
+
+  static NSSet keyPathsForValuesAffectingValueForKey_(
+      WebKitPluginBindings _lib, NSString key) {
+    final _ret = _lib._objc_msgSend_55(_lib._class_StrongRef_NSError1,
+        _lib._sel_keyPathsForValuesAffectingValueForKey_1, key._id);
+    return NSSet._(_ret, _lib, retain: true, release: true);
+  }
+
+  static bool automaticallyNotifiesObserversForKey_(
+      WebKitPluginBindings _lib, NSString key) {
+    return _lib._objc_msgSend_56(_lib._class_StrongRef_NSError1,
+        _lib._sel_automaticallyNotifiesObserversForKey_1, key._id);
+  }
+
+  static NSArray classFallbacksForKeyedArchiver(WebKitPluginBindings _lib) {
+    final _ret = _lib._objc_msgSend_77(_lib._class_StrongRef_NSError1,
+        _lib._sel_classFallbacksForKeyedArchiver1);
+    return NSArray._(_ret, _lib, retain: true, release: true);
+  }
+
+  static NSObject classForKeyedUnarchiver(WebKitPluginBindings _lib) {
+    final _ret = _lib._objc_msgSend_2(
+        _lib._class_StrongRef_NSError1, _lib._sel_classForKeyedUnarchiver1);
+    return NSObject._(_ret, _lib, retain: true, release: true);
   }
 }
 
@@ -57068,13 +58124,51 @@ class WebKitViewWrapper extends NSObject {
     return WebKitViewWrapper._(_ret, _lib, retain: true, release: true);
   }
 
+  ObjCBlock_ffiVoid_ffiDouble? get onProgress {
+    final _ret = _lib._objc_msgSend_902(_id, _lib._sel_onProgress1);
+    return _ret.address == 0
+        ? null
+        : ObjCBlock_ffiVoid_ffiDouble._(_ret, _lib,
+            retain: true, release: true);
+  }
+
+  set onProgress(ObjCBlock_ffiVoid_ffiDouble? value) {
+    return _lib._objc_msgSend_903(
+        _id, _lib._sel_setOnProgress_1, value?._id ?? ffi.nullptr);
+  }
+
+  ObjCBlock_ffiVoid_StrongRefNSURL? get onUrlChange {
+    final _ret = _lib._objc_msgSend_894(_id, _lib._sel_onUrlChange1);
+    return _ret.address == 0
+        ? null
+        : ObjCBlock_ffiVoid_StrongRefNSURL._(_ret, _lib,
+            retain: true, release: true);
+  }
+
+  set onUrlChange(ObjCBlock_ffiVoid_StrongRefNSURL? value) {
+    return _lib._objc_msgSend_895(
+        _id, _lib._sel_setOnUrlChange_1, value?._id ?? ffi.nullptr);
+  }
+
+  @override
+  void observeValueForKeyPath_ofObject_change_context_(NSString? keyPath,
+      NSObject? object, NSDictionary? change, ffi.Pointer<ffi.Void> context) {
+    _lib._objc_msgSend_457(
+        _id,
+        _lib._sel_observeValueForKeyPath_ofObject_change_context_1,
+        keyPath?._id ?? ffi.nullptr,
+        object?._id ?? ffi.nullptr,
+        change?._id ?? ffi.nullptr,
+        context);
+  }
+
   void loadWithRequest_(NSURLRequest request) {
     _lib._objc_msgSend_778(_id, _lib._sel_loadWithRequest_1, request._id);
   }
 
   void setBackgroundColorWithRed_green_blue_alpha_(
       double red, double green, double blue, double alpha) {
-    _lib._objc_msgSend_891(
+    _lib._objc_msgSend_904(
         _id,
         _lib._sel_setBackgroundColorWithRed_green_blue_alpha_1,
         red,
@@ -57084,12 +58178,12 @@ class WebKitViewWrapper extends NSObject {
   }
 
   void setJavaScriptEnabledWithEnabled_(bool enabled) {
-    _lib._objc_msgSend_892(
+    _lib._objc_msgSend_905(
         _id, _lib._sel_setJavaScriptEnabledWithEnabled_1, enabled);
   }
 
   void setNavigationDelegateWithDelegate_(NavigationDelegateWrapper delegate) {
-    _lib._objc_msgSend_893(
+    _lib._objc_msgSend_906(
         _id, _lib._sel_setNavigationDelegateWithDelegate_1, delegate._id);
   }
 
@@ -57171,4 +58265,157 @@ class WebKitViewWrapper extends NSObject {
         _lib._class_WebKitViewWrapper1, _lib._sel_classForKeyedUnarchiver1);
     return NSObject._(_ret, _lib, retain: true, release: true);
   }
+}
+
+void _ObjCBlock_ffiVoid_ffiDouble_fnPtrTrampoline(
+        ffi.Pointer<_ObjCBlock> block, double arg0) =>
+    block.ref.target
+        .cast<ffi.NativeFunction<ffi.Void Function(ffi.Double arg0)>>()
+        .asFunction<void Function(double)>()(arg0);
+final _ObjCBlock_ffiVoid_ffiDouble_closureRegistry =
+    <int, void Function(double)>{};
+int _ObjCBlock_ffiVoid_ffiDouble_closureRegistryIndex = 0;
+ffi.Pointer<ffi.Void> _ObjCBlock_ffiVoid_ffiDouble_registerClosure(
+    void Function(double) fn) {
+  final id = ++_ObjCBlock_ffiVoid_ffiDouble_closureRegistryIndex;
+  _ObjCBlock_ffiVoid_ffiDouble_closureRegistry[id] = fn;
+  return ffi.Pointer<ffi.Void>.fromAddress(id);
+}
+
+void _ObjCBlock_ffiVoid_ffiDouble_closureTrampoline(
+        ffi.Pointer<_ObjCBlock> block, double arg0) =>
+    _ObjCBlock_ffiVoid_ffiDouble_closureRegistry[block.ref.target.address]!(
+        arg0);
+
+class ObjCBlock_ffiVoid_ffiDouble extends _ObjCBlockBase {
+  ObjCBlock_ffiVoid_ffiDouble._(
+      ffi.Pointer<_ObjCBlock> id, WebKitPluginBindings lib,
+      {bool retain = false, bool release = true})
+      : super._(id, lib, retain: retain, release: release);
+
+  /// Returns a block that wraps the given raw block pointer.
+  static ObjCBlock_ffiVoid_ffiDouble castFromPointer(
+      WebKitPluginBindings lib, ffi.Pointer<_ObjCBlock> pointer,
+      {bool retain = false, bool release = false}) {
+    return ObjCBlock_ffiVoid_ffiDouble._(pointer, lib,
+        retain: retain, release: release);
+  }
+
+  /// Creates a block from a C function pointer.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ObjCBlock_ffiVoid_ffiDouble.fromFunctionPointer(WebKitPluginBindings lib,
+      ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Double arg0)>> ptr)
+      : this._(
+            lib._newBlock1(
+                _cFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Void Function(
+                                ffi.Pointer<_ObjCBlock>, ffi.Double)>(
+                        _ObjCBlock_ffiVoid_ffiDouble_fnPtrTrampoline)
+                    .cast(),
+                ptr.cast()),
+            lib);
+  static ffi.Pointer<ffi.Void>? _cFuncTrampoline;
+
+  /// Creates a block from a Dart function.
+  ///
+  /// This block must be invoked by native code running on the same thread as
+  /// the isolate that registered it. Invoking the block on the wrong thread
+  /// will result in a crash.
+  ObjCBlock_ffiVoid_ffiDouble.fromFunction(
+      WebKitPluginBindings lib, void Function(double) fn)
+      : this._(
+            lib._newBlock1(
+                _dartFuncTrampoline ??= ffi.Pointer.fromFunction<
+                            ffi.Void Function(
+                                ffi.Pointer<_ObjCBlock>, ffi.Double)>(
+                        _ObjCBlock_ffiVoid_ffiDouble_closureTrampoline)
+                    .cast(),
+                _ObjCBlock_ffiVoid_ffiDouble_registerClosure(
+                    (double arg0) => fn(arg0))),
+            lib);
+  static ffi.Pointer<ffi.Void>? _dartFuncTrampoline;
+
+  /// Creates a listener block from a Dart function.
+  ///
+  /// This is based on FFI's NativeCallable.listener, and has the same
+  /// capabilities and limitations. This block can be invoked from any thread,
+  /// but only supports void functions, and is not run synchronously. See
+  /// NativeCallable.listener for more details.
+  ///
+  /// Note that unlike the default behavior of NativeCallable.listener, listener
+  /// blocks do not keep the isolate alive.
+  ObjCBlock_ffiVoid_ffiDouble.listener(
+      WebKitPluginBindings lib, void Function(double) fn)
+      : this._(
+            lib._newBlock1(
+                (_dartFuncListenerTrampoline ??= ffi.NativeCallable<
+                            ffi.Void Function(
+                                ffi.Pointer<_ObjCBlock>, ffi.Double)>.listener(
+                        _ObjCBlock_ffiVoid_ffiDouble_closureTrampoline)
+                      ..keepIsolateAlive = false)
+                    .nativeFunction
+                    .cast(),
+                _ObjCBlock_ffiVoid_ffiDouble_registerClosure(
+                    (double arg0) => fn(arg0))),
+            lib);
+  static ffi
+      .NativeCallable<ffi.Void Function(ffi.Pointer<_ObjCBlock>, ffi.Double)>?
+      _dartFuncListenerTrampoline;
+
+  void call(double arg0) => _id.ref.invoke
+      .cast<
+          ffi.NativeFunction<
+              ffi.Void Function(
+                  ffi.Pointer<_ObjCBlock> block, ffi.Double arg0)>>()
+      .asFunction<void Function(ffi.Pointer<_ObjCBlock>, double)>()(_id, arg0);
+}
+
+/// ! @enum WKErrorCode
+/// @abstract Constants used by NSError to indicate errors in the WebKit domain.
+/// @constant WKErrorUnknown                              Indicates that an unknown error occurred.
+/// @constant WKErrorWebContentProcessTerminated          Indicates that the Web Content process was terminated.
+/// @constant WKErrorWebViewInvalidated                   Indicates that the WKWebView was invalidated.
+/// @constant WKErrorJavaScriptExceptionOccurred          Indicates that a JavaScript exception occurred.
+/// @constant WKErrorJavaScriptResultTypeIsUnsupported    Indicates that the result of JavaScript execution could not be returned.
+/// @constant WKErrorContentRuleListStoreCompileFailed    Indicates that compiling a WKUserContentRuleList failed.
+/// @constant WKErrorContentRuleListStoreLookUpFailed     Indicates that looking up a WKUserContentRuleList failed.
+/// @constant WKErrorContentRuleListStoreRemoveFailed     Indicates that removing a WKUserContentRuleList failed.
+/// @constant WKErrorContentRuleListStoreVersionMismatch  Indicates that the WKUserContentRuleList version did not match the latest.
+/// @constant WKErrorAttributedStringContentFailedToLoad  Indicates that the attributed string content failed to load.
+/// @constant WKErrorAttributedStringContentLoadTimedOut  Indicates that loading attributed string content timed out.
+/// @constant WKErrorNavigationAppBoundDomain  Indicates that a navigation failed due to an app-bound domain restriction.
+/// @constant WKErrorJavaScriptAppBoundDomain  Indicates that JavaScript execution failed due to an app-bound domain restriction.
+abstract class WKErrorCode {
+  static const int WKErrorUnknown = 1;
+  static const int WKErrorWebContentProcessTerminated = 2;
+  static const int WKErrorWebViewInvalidated = 3;
+  static const int WKErrorJavaScriptExceptionOccurred = 4;
+  static const int WKErrorJavaScriptResultTypeIsUnsupported = 5;
+  static const int WKErrorContentRuleListStoreCompileFailed = 6;
+  static const int WKErrorContentRuleListStoreLookUpFailed = 7;
+  static const int WKErrorContentRuleListStoreRemoveFailed = 8;
+  static const int WKErrorContentRuleListStoreVersionMismatch = 9;
+  static const int WKErrorAttributedStringContentFailedToLoad = 10;
+  static const int WKErrorAttributedStringContentLoadTimedOut = 11;
+  static const int WKErrorJavaScriptInvalidFrameTarget = 12;
+  static const int WKErrorNavigationAppBoundDomain = 13;
+  static const int WKErrorJavaScriptAppBoundDomain = 14;
+  static const int WKErrorDuplicateCredential = 15;
+  static const int WKErrorMalformedCredential = 16;
+  static const int WKErrorCredentialNotFound = 17;
+}
+
+/// ! @enum WKNavigationActionPolicy
+/// @abstract The policy to pass back to the decision handler from the
+/// webView:decidePolicyForNavigationAction:decisionHandler: method.
+/// @constant WKNavigationActionPolicyCancel   Cancel the navigation.
+/// @constant WKNavigationActionPolicyAllow    Allow the navigation to continue.
+/// @constant WKNavigationActionPolicyDownload    Turn the navigation into a download.
+abstract class WKNavigationActionPolicy {
+  static const int WKNavigationActionPolicyCancel = 0;
+  static const int WKNavigationActionPolicyAllow = 1;
+  static const int WKNavigationActionPolicyDownload = 2;
 }

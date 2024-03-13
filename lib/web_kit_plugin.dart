@@ -30,14 +30,70 @@ extension Uint8ListToNSData on Uint8List {
   }
 }
 
+extension NSURLToUri on NSURL {
+  Uri? get toUri {
+    final str = absoluteString?.toString();
+    if (str == null) return null;
+    return Uri.tryParse(str);
+  }
+}
+
+extension NavigationDecisionToWKNavigationActionPolicy on NavigationDecision {
+  int get toWKNavigationActionPolicy {
+    switch (this) {
+      case NavigationDecision.prevent:
+        return WKNavigationActionPolicy.WKNavigationActionPolicyCancel;
+      case NavigationDecision.navigate:
+        return WKNavigationActionPolicy.WKNavigationActionPolicyAllow;
+    }
+  }
+}
+
+extension NSErrorToWebResourceError on NSError {
+  WebResourceError toWebResourceError(NSURL? url) => WebResourceError(
+        errorCode: code,
+        description: localizedDescription?.toString() ?? '',
+        errorType: _toWebResourceErrorType(code),
+        isForMainFrame: true,
+        url: url?.absoluteString?.toString(),
+      );
+
+  static WebResourceErrorType? _toWebResourceErrorType(int code) {
+    switch (code) {
+      case WKErrorCode.WKErrorUnknown:
+        return WebResourceErrorType.unknown;
+      case WKErrorCode.WKErrorWebContentProcessTerminated:
+        return WebResourceErrorType.webContentProcessTerminated;
+      case WKErrorCode.WKErrorWebViewInvalidated:
+        return WebResourceErrorType.webViewInvalidated;
+      case WKErrorCode.WKErrorJavaScriptExceptionOccurred:
+        return WebResourceErrorType.javaScriptExceptionOccurred;
+      case WKErrorCode.WKErrorJavaScriptResultTypeIsUnsupported:
+        return WebResourceErrorType.javaScriptResultTypeIsUnsupported;
+    }
+    return null;
+  }
+}
+
 class SwiftWebViewController extends PlatformWebViewController {
-  SwiftWebViewController() :
-      super.implementation(PlatformWebViewControllerCreationParams()) {
+  SwiftWebViewController()
+      : super.implementation(PlatformWebViewControllerCreationParams()) {
     final id = hashCode;
-    _view = runOnPlatformThread(() =>
-        WebKitViewWrapper.alloc(_lib).initWithId_(id).pointer
-    ).then((Pointer<ObjCObject> viewPtr) =>
-        WebKitViewWrapper.castFromPointer(_lib, viewPtr));
+    _view = runOnPlatformThread(
+            () => WebKitViewWrapper.alloc(_lib).initWithId_(id).pointer)
+        .then((Pointer<ObjCObject> viewPtr) =>
+            WebKitViewWrapper.castFromPointer(_lib, viewPtr));
+    _setupObservers();
+  }
+
+  Future<void> _setupObservers() async {
+    _onProgress = ObjCBlock_ffiVoid_ffiDouble.listener(_lib,
+        (double progress) => _navigationDelegate?._onProgress?.call(progress));
+    _onUrlChange = ObjCBlock_ffiVoid_StrongRefNSURL.listener(_lib,
+        (StrongRef_NSURL? url) => _navigationDelegate?._onUrlChange?.call(url));
+    (await _view)
+      ..onProgress = _onProgress
+      ..onUrlChange = _onUrlChange;
   }
 
   late Future<WebKitViewWrapper> _view;
@@ -45,6 +101,8 @@ class SwiftWebViewController extends PlatformWebViewController {
   Future<void> get ready => _view;
 
   SwiftNavigationDelegate? _navigationDelegate;
+  ObjCBlock_ffiVoid_ffiDouble? _onProgress;
+  ObjCBlock_ffiVoid_StrongRefNSURL? _onUrlChange;
 
   @override
   Future<void> setJavaScriptMode(JavaScriptMode javaScriptMode) async {
@@ -82,7 +140,8 @@ class SwiftWebViewController extends PlatformWebViewController {
     final delegatePtr = _navigationDelegate!._delegate.pointer;
     await runOnPlatformThread(() async {
       final view = WebKitViewWrapper.castFromPointer(_lib, viewPtr);
-      final delegate = NavigationDelegateWrapper.castFromPointer(_lib, delegatePtr);
+      final delegate =
+          NavigationDelegateWrapper.castFromPointer(_lib, delegatePtr);
       view.setNavigationDelegateWithDelegate_(delegate);
     });
   }
@@ -112,24 +171,24 @@ class SwiftWebViewWidget extends PlatformWebViewWidget {
   Widget build(BuildContext context) {
     final controller = params.controller as SwiftWebViewController;
     return FutureBuilder(
-        future: controller.ready,
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-          if (snapshot.hasData) {
-            return UiKitView(
-              key: ValueKey<PlatformWebViewWidgetCreationParams>(params),
-              viewType: 'plugins.flutter.io/swift_webview',
-              onPlatformViewCreated: (_) {},
-              layoutDirection: params.layoutDirection,
-              gestureRecognizers: params.gestureRecognizers,
-              creationParams: params.controller.hashCode,
-              creationParamsCodec: const StandardMessageCodec(),
-            );
-          } else if (snapshot.hasError) {
-            return Text('Error: ${snapshot.error}');
-          } else {
-            return Text('Waiting...');
-          }
-        },
+      future: controller.ready,
+      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+        if (snapshot.hasData) {
+          return UiKitView(
+            key: ValueKey<PlatformWebViewWidgetCreationParams>(params),
+            viewType: 'plugins.flutter.io/swift_webview',
+            onPlatformViewCreated: (_) {},
+            layoutDirection: params.layoutDirection,
+            gestureRecognizers: params.gestureRecognizers,
+            creationParams: params.controller.hashCode,
+            creationParamsCodec: const StandardMessageCodec(),
+          );
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        } else {
+          return Text('Waiting...');
+        }
+      },
     );
   }
 }
@@ -137,64 +196,98 @@ class SwiftWebViewWidget extends PlatformWebViewWidget {
 class SwiftNavigationDelegate extends PlatformNavigationDelegate {
   SwiftNavigationDelegate()
       : _delegate = NavigationDelegateWrapper.new1(_lib),
-      _decidePolicyForNavigationAction = ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt.listener(
-          _lib, defaultDecidePolicyForNavigationAction),
-      super.implementation(PlatformNavigationDelegateCreationParams()) {
-    _delegate.decidePolicyForNavigationAction =
-        _decidePolicyForNavigationAction;
+        super.implementation(PlatformNavigationDelegateCreationParams()) {
+    setOnNavigationRequest(defaultDecidePolicyForNavigationAction);
   }
 
   NavigationDelegateWrapper _delegate;
 
-  ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt _decidePolicyForNavigationAction;
+  ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt?
+      _decidePolicyForNavigationAction;
+  static NavigationDecision defaultDecidePolicyForNavigationAction(
+      NavigationRequest request) {
+    return NavigationDecision.navigate;
+  }
+
   @override
   Future<void> setOnNavigationRequest(
       NavigationRequestCallback onNavigationRequest) async {
-    // _decidePolicyForNavigationAction = ObjCBlock_ffiVoid_WKNavigationAction_ClosureVoidInt.listener(
-    //       _lib, (WKNavigationAction action, ObjCBlock_ffiVoid_ffiLong decisionHandler) {
-    //         final decision = onNavigationRequest(NavigationRequest(
-    //           url: action.request.url,
-    //           isMainFrame: action.targetFrame.isMainFrame,
-    //         ));
-    //         decisionHandler(decision.WKNavigationActionPolicy);
-    //       }
-    //     );
-    // _delegate.decidePolicyForNavigationAction =
-    //     _decidePolicyForNavigationAction;
-  }
-  static void defaultDecidePolicyForNavigationAction(
-      WKNavigationAction action, Closure_Void_Int decisionHandler) {
-    decisionHandler.callWithArg_(1);
+    _decidePolicyForNavigationAction =
+        ObjCBlock_ffiVoid_NavigationActionWrapper_ClosureVoidInt.listener(_lib,
+            (NavigationActionWrapper action,
+                Closure_Void_Int decisionHandler) async {
+      final decision = await onNavigationRequest(NavigationRequest(
+        url: action.request.URL?.absoluteString?.toString() ?? '',
+        isMainFrame: action.targetFrame?.isMainFrame ?? true,
+      ));
+      decisionHandler.callWithArg_(decision.toWKNavigationActionPolicy);
+    });
+    _delegate.decidePolicyForNavigationAction =
+        _decidePolicyForNavigationAction;
   }
 
+  ObjCBlock_ffiVoid_StrongRefNSURL? _didStartProvisionalNavigation;
   @override
   Future<void> setOnPageStarted(PageEventCallback onPageStarted) async {
+    _didStartProvisionalNavigation =
+        ObjCBlock_ffiVoid_StrongRefNSURL.listener(_lib, (StrongRef_NSURL? url) {
+      onPageStarted(url?.value.absoluteString?.toString() ?? '');
+      url?.drop();
+    });
+    _delegate.didStartProvisionalNavigation = _didStartProvisionalNavigation;
   }
 
+  ObjCBlock_ffiVoid_StrongRefNSURL? _didFinishNavigation;
   @override
   Future<void> setOnPageFinished(PageEventCallback onPageFinished) async {
+    _didFinishNavigation =
+        ObjCBlock_ffiVoid_StrongRefNSURL.listener(_lib, (StrongRef_NSURL? url) {
+      onPageFinished(url?.value.absoluteString?.toString() ?? '');
+      url?.drop();
+    });
+    _delegate.didFinishNavigation = _didFinishNavigation;
   }
 
-  @override
-  Future<void> setOnHttpError(HttpResponseErrorCallback onHttpError) async {
-  }
-
+  void Function(double)? _onProgress;
   @override
   Future<void> setOnProgress(ProgressCallback onProgress) async {
+    _onProgress = (double fraction) => onProgress((100 * fraction).round());
   }
 
+  ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL? _didFailNavigation;
+  ObjCBlock_ffiVoid? _webContentProcessDidTerminate;
   @override
   Future<void> setOnWebResourceError(
       WebResourceErrorCallback onWebResourceError) async {
+    _didFailNavigation =
+        ObjCBlock_ffiVoid_StrongRefNSError_StrongRefNSURL.listener(_lib,
+            (StrongRef_NSError error, StrongRef_NSURL? url) {
+      onWebResourceError(error.value.toWebResourceError(url?.value));
+      error.drop();
+      url?.drop();
+    });
+    _delegate.didFailNavigation = _didFailNavigation;
+    _delegate.didFailProvisionalNavigation = _didFailNavigation;
+
+    _webContentProcessDidTerminate = ObjCBlock_ffiVoid.listener(_lib, () {
+      onWebResourceError(WebResourceError(
+        errorCode: WKErrorCode.WKErrorWebContentProcessTerminated,
+        description: '',
+        errorType: WebResourceErrorType.webContentProcessTerminated,
+        isForMainFrame: true,
+        url: null,
+      ));
+    });
+    _delegate.webContentProcessDidTerminate = _webContentProcessDidTerminate;
   }
 
+  void Function(StrongRef_NSURL?)? _onUrlChange;
   @override
   Future<void> setOnUrlChange(UrlChangeCallback onUrlChange) async {
-  }
-
-  @override
-  Future<void> setOnHttpAuthRequest(
-      HttpAuthRequestCallback onHttpAuthRequest) async {
+    _onUrlChange = (StrongRef_NSURL? url) {
+      onUrlChange(UrlChange(url: url?.value.absoluteString?.toString()));
+      url?.drop();
+    };
   }
 }
 

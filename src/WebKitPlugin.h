@@ -277,6 +277,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 @import CoreFoundation;
 @import Flutter;
+@import Foundation;
 @import ObjectiveC;
 @import WebKit;
 #endif
@@ -307,27 +308,68 @@ SWIFT_CLASS("_TtC14web_kit_plugin16Closure_Void_Int")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class WKFrameInfo;
 
-SWIFT_CLASS("_TtC14web_kit_plugin22NavigationActionPolicy")
-@interface NavigationActionPolicy : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger cancel;)
-+ (NSInteger)cancel SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger allow;)
-+ (NSInteger)allow SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger download;)
-+ (NSInteger)download SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS("_TtC14web_kit_plugin16FrameInfoWrapper")
+@interface FrameInfoWrapper : NSObject
+- (nonnull instancetype)initWithInfo:(WKFrameInfo * _Nonnull)info OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly) BOOL isMainFrame;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class WKNavigationAction;
+@class NSURLRequest;
+
+SWIFT_CLASS("_TtC14web_kit_plugin23NavigationActionWrapper")
+@interface NavigationActionWrapper : NSObject
+- (nonnull instancetype)initWithAction:(WKNavigationAction * _Nonnull)action OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSURLRequest * _Nonnull request;
+@property (nonatomic, readonly, strong) FrameInfoWrapper * _Nullable targetFrame;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class WKWebView;
+@class StrongRef_NSURL;
+@class WKNavigation;
+@class StrongRef_NSError;
 
 SWIFT_CLASS("_TtC14web_kit_plugin25NavigationDelegateWrapper")
 @interface NavigationDelegateWrapper : NSObject <WKNavigationDelegate>
-@property (nonatomic, copy) void (^ _Nullable decidePolicyForNavigationAction)(WKNavigationAction * _Nonnull, Closure_Void_Int * _Nonnull);
-@property (nonatomic, copy) void (^ _Nullable bloop)(void);
+@property (nonatomic, copy) void (^ _Nullable decidePolicyForNavigationAction)(NavigationActionWrapper * _Nonnull, Closure_Void_Int * _Nonnull);
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
+@property (nonatomic, copy) void (^ _Nullable didStartProvisionalNavigation)(StrongRef_NSURL * _Nullable);
+- (void)webView:(WKWebView * _Nonnull)webView didStartProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation;
+@property (nonatomic, copy) void (^ _Nullable didFinishNavigation)(StrongRef_NSURL * _Nullable);
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+@property (nonatomic, copy) void (^ _Nullable didFailNavigation)(StrongRef_NSError * _Nonnull, StrongRef_NSURL * _Nullable);
+- (void)webView:(WKWebView * _Nonnull)webView didFailNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+@property (nonatomic, copy) void (^ _Nullable didFailProvisionalNavigation)(StrongRef_NSError * _Nonnull, StrongRef_NSURL * _Nullable);
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+@property (nonatomic, copy) void (^ _Nullable webContentProcessDidTerminate)(void);
+- (void)webViewWebContentProcessDidTerminate:(WKWebView * _Nonnull)webView;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSError;
+
+SWIFT_CLASS("_TtC14web_kit_plugin17StrongRef_NSError")
+@interface StrongRef_NSError : NSObject
+@property (nonatomic, readonly, strong) NSError * _Nonnull value;
+- (void)drop;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSURL;
+
+SWIFT_CLASS("_TtC14web_kit_plugin15StrongRef_NSURL")
+@interface StrongRef_NSURL : NSObject
+@property (nonatomic, readonly, strong) NSURL * _Nonnull value;
+- (void)drop;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @class UIView;
@@ -353,17 +395,19 @@ SWIFT_CLASS("_TtC14web_kit_plugin12WebKitPlugin")
 SWIFT_CLASS("_TtC14web_kit_plugin17WebKitViewFactory")
 @interface WebKitViewFactory : NSObject <FlutterPlatformViewFactory>
 - (id <FlutterPlatformView> _Nonnull)createWithFrame:(CGRect)frame viewIdentifier:(int64_t)viewId arguments:(id _Nullable)args SWIFT_WARN_UNUSED_RESULT;
-/// Implementing this method is only necessary when the <code>arguments</code> in <code>createWithFrame</code> is not <code>nil</code>.
 - (id <FlutterMessageCodec, NSObject> _Nonnull)createArgsCodec SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSURLRequest;
+@class NSString;
 
 SWIFT_CLASS("_TtC14web_kit_plugin17WebKitViewWrapper")
 @interface WebKitViewWrapper : NSObject
 - (nonnull instancetype)initWithId:(NSInteger)id OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, copy) void (^ _Nullable onProgress)(double);
+@property (nonatomic, copy) void (^ _Nullable onUrlChange)(StrongRef_NSURL * _Nullable);
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
 - (void)loadWithRequest:(NSURLRequest * _Nonnull)request;
 - (void)setBackgroundColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 - (void)setJavaScriptEnabledWithEnabled:(BOOL)enabled;

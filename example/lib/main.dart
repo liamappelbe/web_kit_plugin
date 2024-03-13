@@ -32,12 +32,24 @@ class _WebViewExampleState extends State<WebViewExample> {
         NavigationDelegate.fromPlatform(
           SwiftNavigationDelegate(),
           onProgress: (int progress) {
-            // Update loading bar.
+            print("onProgress $progress");
           },
-          onPageStarted: (String url) {},
-          onPageFinished: (String url) {},
-          onWebResourceError: (WebResourceError error) {},
+          onUrlChange: (UrlChange change) {
+            print("onUrlChange ${change.url}");
+          },
+          onPageStarted: (String url) {
+            print("onPageStarted $url");
+          },
+          onPageFinished: (String url) {
+            print("onPageFinished $url");
+          },
+          onWebResourceError: (WebResourceError error) {
+            print(
+                "onWebResourceError ${error.errorCode}\t${error.description}\t"
+                "${error.errorType}\t${error.isForMainFrame}\t${error.url}");
+          },
           onNavigationRequest: (NavigationRequest request) {
+            print("onNavigationRequest ${request.url}");
             if (request.url.startsWith('https://www.youtube.com/')) {
               return NavigationDecision.prevent;
             }

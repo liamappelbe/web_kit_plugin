@@ -5,18 +5,26 @@ output: '../lib/web_kit_plugin_bindings_generated.dart'
 exclude-all-by-default: true
 objc-interfaces:
   include:
-    - 'WebKitViewWrapper'
-    - 'NavigationDelegateWrapper'
     - 'Closure_Void_Int'
-    - 'NavigationActionPolicy'
+    - 'FrameInfoWrapper'
+    - 'NavigationActionWrapper'
+    - 'NavigationDelegateWrapper'
+    - 'WebKitViewWrapper'
   module:
-    'WebKitViewWrapper': 'web_kit_plugin'
-    'NavigationDelegateWrapper': 'web_kit_plugin'
     'Closure_Void_Int': 'web_kit_plugin'
-    'NavigationActionPolicy': 'web_kit_plugin'
+    'FrameInfoWrapper': 'web_kit_plugin'
+    'NavigationActionWrapper': 'web_kit_plugin'
+    'NavigationDelegateWrapper': 'web_kit_plugin'
+    'WebKitViewWrapper': 'web_kit_plugin'
+enums:
+  include:
+    - 'WKNavigationActionPolicy'
+    - 'WKErrorCode'
 headers:
   entry-points:
     - 'WebKitPlugin.h'
+    - '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/WebKit.framework/Headers/WKError.h'
+    - '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/WebKit.framework/Headers/WKNavigationDelegate.h'
 compiler-opts:
   - '-F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks'
   - '-mios-version-min=11.0'
