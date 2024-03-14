@@ -78,9 +78,7 @@ extension NSErrorToWebResourceError on NSError {
 class SwiftWebViewController extends PlatformWebViewController {
   SwiftWebViewController()
       : super.implementation(PlatformWebViewControllerCreationParams()) {
-    final id = hashCode;
-    _view = runOnPlatformThread(
-            () => WebKitViewWrapper.alloc(_lib).initWithId_(id).pointer)
+    _view = runOnPlatformThread(() => WebKitViewWrapper.new1(_lib).pointer)
         .then((Pointer<ObjCObject> viewPtr) =>
             WebKitViewWrapper.castFromPointer(_lib, viewPtr));
     _setupObservers();
@@ -98,7 +96,7 @@ class SwiftWebViewController extends PlatformWebViewController {
 
   late Future<WebKitViewWrapper> _view;
   Future<Pointer<ObjCObject>> get _viewPtr async => (await _view).pointer;
-  Future<void> get ready => _view;
+  Future<int> get id async => (await _view).pointer.address;
 
   SwiftNavigationDelegate? _navigationDelegate;
   ObjCBlock_ffiVoid_ffiDouble? _onProgress;
@@ -171,8 +169,8 @@ class SwiftWebViewWidget extends PlatformWebViewWidget {
   Widget build(BuildContext context) {
     final controller = params.controller as SwiftWebViewController;
     return FutureBuilder(
-      future: controller.ready,
-      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+      future: controller.id,
+      builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
         if (snapshot.hasData) {
           return UiKitView(
             key: ValueKey<PlatformWebViewWidgetCreationParams>(params),
@@ -180,7 +178,7 @@ class SwiftWebViewWidget extends PlatformWebViewWidget {
             onPlatformViewCreated: (_) {},
             layoutDirection: params.layoutDirection,
             gestureRecognizers: params.gestureRecognizers,
-            creationParams: params.controller.hashCode,
+            creationParams: snapshot.data!,
             creationParamsCodec: const StandardMessageCodec(),
           );
         } else if (snapshot.hasError) {
@@ -308,4 +306,8 @@ final DynamicLibrary _dylib = () {
 }();
 
 /// The bindings to the native functions in [_dylib].
-final WebKitPluginBindings _lib = WebKitPluginBindings(_dylib);
+final WebKitPluginBindings _lib = () {
+  final lib = WebKitPluginBindings(_dylib);
+  lib.setupUtil();
+  return lib;
+}();

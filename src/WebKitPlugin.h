@@ -404,7 +404,10 @@ SWIFT_CLASS("_TtC14web_kit_plugin17WebKitViewFactory")
 
 SWIFT_CLASS("_TtC14web_kit_plugin17WebKitViewWrapper")
 @interface WebKitViewWrapper : NSObject
-- (nonnull instancetype)initWithId:(NSInteger)id OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSObject * _Nonnull (^ _Nullable intToObject)(int64_t);)
++ (NSObject * _Nonnull (^ _Nullable)(int64_t))intToObject SWIFT_WARN_UNUSED_RESULT;
++ (void)setIntToObject:(NSObject * _Nonnull (^ _Nullable)(int64_t))value;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, copy) void (^ _Nullable onProgress)(double);
 @property (nonatomic, copy) void (^ _Nullable onUrlChange)(StrongRef_NSURL * _Nullable);
 - (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
@@ -412,8 +415,6 @@ SWIFT_CLASS("_TtC14web_kit_plugin17WebKitViewWrapper")
 - (void)setBackgroundColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 - (void)setJavaScriptEnabledWithEnabled:(BOOL)enabled;
 - (void)setNavigationDelegateWithDelegate:(NavigationDelegateWrapper * _Nonnull)delegate;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 #endif

@@ -20,8 +20,12 @@ enums:
   include:
     - 'WKNavigationActionPolicy'
     - 'WKErrorCode'
+functions:
+  include:
+    - 'setupUtil'
 headers:
   entry-points:
+    - '../ios/Classes/util.h'
     - 'WebKitPlugin.h'
     - '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/WebKit.framework/Headers/WKError.h'
     - '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/WebKit.framework/Headers/WKNavigationDelegate.h'

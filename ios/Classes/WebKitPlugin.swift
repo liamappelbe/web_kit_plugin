@@ -23,7 +23,7 @@ class WebKitViewFactory: NSObject, FlutterPlatformViewFactory {
     viewIdentifier viewId: Int64,
     arguments args: Any?
   ) -> FlutterPlatformView {
-    return WebKitNativeView(id: args as! Int)
+    return WebKitNativeView(id: args as! Int64)
   }
 
   public func createArgsCodec() -> FlutterMessageCodec & NSObjectProtocol {
@@ -34,8 +34,10 @@ class WebKitViewFactory: NSObject, FlutterPlatformViewFactory {
 class WebKitNativeView: NSObject, FlutterPlatformView {
   private var _webView: WebKitViewWrapper
 
-  init(id: Int) {
-    _webView = WebKitViewWrapper.instances[id]!.value!
+  init(id: Int64) {
+    // The WebKitViewWrapper is passed from Dart to Swift through the
+    // WebKitViewFactory as an int, then we cast it to a WebView.
+    _webView = WebKitViewWrapper.intToObject!(id) as! WebKitViewWrapper
     super.init()
   }
 
@@ -93,6 +95,7 @@ class StrongRef<T: NSObject> {
       _ webView: WKWebView,
       decidePolicyFor navigationAction: WKNavigationAction,
       decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    // Using handlerWrapper to manage object lifetimes, rather than StrongRef.
     var navigationWrapper: NavigationActionWrapper? =
         NavigationActionWrapper(action: navigationAction)
     var handlerWrapper: Closure_Void_Int? = nil
@@ -152,11 +155,11 @@ class StrongRef<T: NSObject> {
 }
 
 @objc class WebKitViewWrapper : NSObject {
-  static var instances: [Int: WeakRef<WebKitViewWrapper>] = [:]
+  @objc static var intToObject: ((Int64) -> NSObject)?
 
   private var _webView: WKWebView
 
-  @objc init(id: Int) {
+  @objc override init() {
     let webConfiguration = WKWebViewConfiguration()
     _webView = WKWebView(frame: .zero, configuration: webConfiguration)
 
@@ -172,7 +175,6 @@ class StrongRef<T: NSObject> {
       forKeyPath: "URL",
       options: [NSKeyValueObservingOptions.new],
       context: nil)
-    WebKitViewWrapper.instances[id] = WeakRef(value: self)
   }
 
   deinit {

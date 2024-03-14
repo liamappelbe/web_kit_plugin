@@ -14,9 +14,7 @@ dependencies:
   plugin_platform_interface: ^2.0.2
 
 dev_dependencies:
-  ffigen:
-    path:
-      ../native/pkgs/ffigen
+  ffigen: ^11.0.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
