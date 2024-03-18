@@ -46,13 +46,6 @@ class WebKitNativeView: NSObject, FlutterPlatformView {
   }
 }
 
-class WeakRef<T: NSObject> {
-  weak var value: T?
-  init(value: T) {
-    self.value = value
-  }
-}
-
 // StrongRef is used to force the wrapped object to stay alive until drop() is
 // called. This allows us to pass NSObjects over async callbacks to Dart code
 // that may run an arbitrary time later. The Dart callback should call drop().
